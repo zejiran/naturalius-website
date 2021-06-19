@@ -1,32 +1,30 @@
 <template>
-  <v-app-bar app dark style="background-color: #005662">
+  <v-app-bar id="naturalius-main" app dark>
     <div class="d-flex align-center">
-      <!--      <v-img-->
-      <!--          alt="Naturalius Logo"-->
-      <!--          class="shrink mr-2"-->
-      <!--          contain-->
-      <!--          src="@/assets/naturalius-logo.png"-->
-      <!--          transition="scale-transition"-->
-      <!--          width="50"-->
-      <!--      />-->
-
       <v-img
           alt="Naturalius Name"
           class="shrink mt-1"
           contain
           min-width="130"
-          src="@/assets/naturalius-name.png"
+          src="@/assets/logos/naturalius-name.png"
+          transition="scale-transition"
           width="200"
       />
     </div>
 
     <v-spacer></v-spacer>
 
-    <v-btn v-for="item in sections" :key="item" :href="item.href" text>
+    <v-btn v-for="item in sections" :key="item" text @click="route(item.href)">
       <span class="mr-2">{{ item.text }}</span>
     </v-btn>
   </v-app-bar>
 </template>
+
+<style lang="scss" scoped>
+#naturalius-main {
+  background-color: #005662
+}
+</style>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -34,11 +32,17 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Header',
 
+  methods: {
+    route(location: string) {
+      this.$router.push(location);
+      window.scrollTo(0, 0)
+    }
+  },
   data: () => ({
     sections: [
       {
         text: 'Home',
-        href: 'https://naturalius.com.co',
+        href: '/',
       },
     ],
   }),
