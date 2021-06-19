@@ -1,16 +1,24 @@
 <template>
-  <hello-world />
+  <v-app>
+    <Header/>
+    <Homepage/>
+    <Footer/>
+  </v-app>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
+import Vue from 'vue'
+import Header from '../components/Header.vue'
+import Homepage from '../components/Homepage.vue'
+import Footer from '../components/Footer.vue'
 
-  export default Vue.extend({
-    name: 'Home',
+export default Vue.extend({
+  name: 'Home',
 
-    components: {
-      HelloWorld,
-    },
-  })
+  components: {
+    Header,
+    Homepage,
+    Footer
+  },
+})
 </script>
