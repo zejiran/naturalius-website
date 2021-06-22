@@ -5,7 +5,7 @@
         {{ new Date().getFullYear() }} — <strong>Naturalius</strong>
       </v-col>
       <v-col class="text-center" cols="12">
-        <v-btn v-for="reference in references" :key="reference" :href="reference.href" icon>
+        <v-btn v-for="reference in references" :key="reference.icon" :href="reference.href" icon>
           <v-icon size="24px">
             {{ reference.icon }}
           </v-icon>
