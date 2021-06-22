@@ -1,5 +1,7 @@
 # Naturalius Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f918dbce-bfd5-428e-9101-74097798a004/deploy-status)](https://app.netlify.com/sites/naturalius/deploys)
+
 ## Project setup
 ```
 npm install
