@@ -1,11 +1,11 @@
 <template>
   <v-footer id="naturalius-main" bottom dark padless>
-    <v-row class="mt-7 mb-14" no-gutters>
+    <v-row class="mt-12 mb-16" no-gutters>
       <v-col class="text-center" cols="12">
         {{ new Date().getFullYear() }} — <strong>Naturalius</strong>
       </v-col>
       <v-col class="text-center" cols="12">
-        <v-btn v-for="reference in references" :key="reference" :href="reference.href" icon>
+        <v-btn v-for="reference in references" :key="reference.icon" :href="reference.href" icon>
           <v-icon size="24px">
             {{ reference.icon }}
           </v-icon>

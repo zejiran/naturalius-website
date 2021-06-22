@@ -14,7 +14,7 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn v-for="item in sections" :key="item" text @click="route(item.href)">
+    <v-btn v-for="item in sections" :key="item.text" text @click="route(item.href)">
       <span class="mr-2">{{ item.text }}</span>
     </v-btn>
   </v-app-bar>
