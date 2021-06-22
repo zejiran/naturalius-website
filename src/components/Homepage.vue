@@ -18,7 +18,7 @@
 
     <v-container align-start fluid justify-center>
       <v-row class="pt-16">
-        <v-col class="text-center text-container" md="6">
+        <v-col class="text-center text-container" cols="12" md="6">
           <h1 class="pb-5 text-justify">Mision</h1>
           <p class="text-justify">Naturalius is the first colombian biotechnology company dedicated to the use of
             natural
@@ -31,7 +31,7 @@
             <v-img alt="Naturalius Mision" src="@/assets/images/mision.jpg" transition="fade-transition"/>
           </div>
         </v-col>
-        <v-col class="text-center text-container" md="6">
+        <v-col class="text-center text-container" cols="12" md="6">
           <h1 class="pb-5 text-justify">Vision</h1>
           <p class="text-justify">By 2030 Naturalius will be the leading start-up in bioprospecting services in
             the LATAM region, employing state-of-the-art processing capacity in the areas of chemistry, biology and
@@ -48,11 +48,11 @@
       </v-row>
     </v-container>
 
-    <v-container align-start class="pt-16 pb-16 white--text naturalius-products" fluid justify-center>
+    <v-container align-start class="white--text naturalius-products" fluid justify-center>
       <h1 class="text-center">Products</h1>
 
       <v-row class="pt-16">
-        <v-col class="text-center text-container" md="3">
+        <v-col class="text-center text-container" cols="12" md="3">
           <h3 class="pb-5">Fragment-enhanced option</h3>
           <p class="font-italic">Design your molecule</p>
           <div class="pt-16 pb-16 img-container-product">
@@ -68,7 +68,7 @@
             natural. Different parts of molecules can be combined to generate new ones, which is a
             strength of our work team.</p>
         </v-col>
-        <v-col class="text-center text-container" md="3">
+        <v-col class="text-center text-container" cols="12" md="3">
           <h3 class="pb-5">Hit-identification phase</h3>
           <p class="font-italic">We look for the molecule of your dreams</p>
           <div class="pt-16 pb-16 img-container-product">
@@ -83,7 +83,7 @@
             millions of them, in order to discover new chemical structures and/or biological activities of
             interest. This allows to significantly reduce time, costs and number of experiments.</p>
         </v-col>
-        <v-col class="text-center text-container" md="3">
+        <v-col class="text-center text-container" cols="12" md="3">
           <h3 class="pb-5">Biomolecule simulator</h3>
           <p class="font-italic">We make sure that your molecule behaves well</p>
           <div class="pt-16 pb-16 img-container-product">
@@ -98,7 +98,7 @@
             characterization, simulation and evaluation of molecules, which are not possible without the necessary
             capacity of hardware, software and specialized knowledge in the area.</p>
         </v-col>
-        <v-col class="text-center text-container" md="3">
+        <v-col class="text-center text-container" cols="12" md="3">
           <h3 class="pb-5">Synthesis-planner option</h3>
           <p class="font-italic">Bring your molecule to the market</p>
           <div class="pt-16 pb-16 img-container-product">
@@ -109,7 +109,8 @@
                 transition="scroll-y-reverse-transition"
             />
           </div>
-          <p class="text-justify pb-5">Our team offers support for the optimization and balance of properties of interest
+          <p class="text-justify pb-5">Our team offers support for the optimization and balance of properties of
+            interest
             in candidate molecules such as affinity, solubility and chemical diversity. This step usually plays a role
             key in the planning of future experiments required by our clients.</p>
         </v-col>
@@ -118,16 +119,16 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .naturalius {
   &-main {
     background-color: #00838f;
-    padding: 15% 0 20% 0;
+    padding: 20% 0 25% 0;
   }
 
   &-products {
     background-color: #00838f;
-    padding: 5% 0 5% 0;
+    padding: 10% 0 10% 0;
   }
 }
 
@@ -156,6 +157,20 @@
 .text-container {
   padding-right: 5%;
   padding-left: 5%;
+}
+
+@media only screen and (max-width: 400px) and (max-device-width: 400px) {
+  .naturalius {
+    &-main {
+      background-color: #00838f;
+      padding: 30% 0 35% 0;
+    }
+
+    &-products {
+      background-color: #00838f;
+      padding: 20% 0 20% 0;
+    }
+  }
 }
 </style>
 
