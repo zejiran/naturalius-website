@@ -102,7 +102,7 @@
     <v-container align-start fluid justify-center>
       <v-row class="pt-16">
         <v-col class="text-center text-container" cols="12" md="6">
-          <h1 class="pb-5 text-justify">Mision</h1>
+          <h1 class="pb-5 text-justify">Mission</h1>
           <p class="text-justify">Naturalius is the first colombian biotechnology company dedicated to the use of
             natural
             resources, mostly
