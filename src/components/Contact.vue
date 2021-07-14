@@ -1,5 +1,14 @@
 <template>
-  <v-parallax
+  <div>
+    <v-container class="py-16" fluid>
+      <p class="py-16 text-center text-h3 text-md-h2">Build the future of biotech with Naturalius</p>
+      <v-row>
+        <v-col><v-img alt="Naturalius AI" src="@/assets/images/launch.svg" height="45rem" contain transition="slide-y-transition"/></v-col>
+      </v-row>
+    </v-container>
+
+    <v-parallax
+        class="mt-16"
     dark
     src="@/assets/images/cocoa.jpeg"
   >
@@ -20,6 +29,7 @@
       </v-col>
     </v-row>
   </v-parallax>
+  </div>
 </template>
 
 <script>
