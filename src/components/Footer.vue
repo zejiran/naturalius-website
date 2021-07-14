@@ -1,5 +1,5 @@
 <template>
-  <v-footer id="naturalius-main" bottom padless>
+  <v-footer id="naturalius-main" bottom class="py-10" padless>
     <v-row class="mt-12 mb-16" no-gutters>
       <v-col class="text-center mb-5" cols="12">
         <v-btn v-for="reference in references" :key="reference.icon" :href="reference.href" icon>

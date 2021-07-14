@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar id="naturalius-main" dark app hide-on-scroll>
+  <v-app-bar id="naturalius-main" app dark hide-on-scroll>
     <div class="d-flex align-center">
       <v-img
           alt="Naturalius Name"

@@ -25,8 +25,12 @@
                 produce innovative compounds</p>
             </v-col>
             <v-col class="text-md-justify text-center" cols="12">
-              <v-btn id="button" elevation="2" href="mailto:contact@naturalius.com.co" text x-large>
+              <v-btn id="button" elevation="5" href="mailto:contact@naturalius.com.co" raised text x-large>
                 <span class="white--text">Contact us</span>
+              </v-btn>
+              <v-btn id="button-2" class="ml-5 hidden-sm-and-down" elevation="2" href="https://calendly.com/naturaliusbiotech/30min" raised
+                     x-large>
+                <span class="white--text">Request a demo</span>
               </v-btn>
             </v-col>
           </v-row>
@@ -74,6 +78,10 @@ export default Vue.extend({
 
 #button {
   background-color: #1C769D;
+}
+
+#button-2 {
+  background-color: #3BACDC;
 }
 
 @media only screen and (max-width: 768px) and (max-device-width: 768px) {
