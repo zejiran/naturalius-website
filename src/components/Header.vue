@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar id="naturalius-main" app dark>
+  <v-app-bar id="naturalius-main" app>
     <div class="d-flex align-center">
       <v-img
           alt="Naturalius Name"
@@ -22,7 +22,7 @@
 
 <style lang="scss" scoped>
 #naturalius-main {
-  background-color: #005662
+  background-color: white
 }
 </style>
 
