@@ -4,6 +4,7 @@
     <MainCarrousel/>
     <Track/>
     <Products/>
+    <Contact/>
     <Footer/>
   </v-app>
 </template>
@@ -14,6 +15,7 @@ import Header from '../components/Header.vue'
 import MainCarrousel from '../components/MainCarrousel.vue'
 import Track from '../components/Track.vue'
 import Products from '../components/Products.vue'
+import Contact from '../components/Contact.vue'
 import Footer from '../components/Footer.vue'
 
 export default Vue.extend({
@@ -24,6 +26,7 @@ export default Vue.extend({
     MainCarrousel,
     Track,
     Products,
+    Contact,
     Footer
   },
 })
