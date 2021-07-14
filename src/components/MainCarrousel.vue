@@ -6,6 +6,7 @@
     <v-carousel-item
         v-for="(item,i) in items"
         :key="i"
+        lazy-src="@/assets/images/carrousel-lazy.png"
         :src="item"
     >
       <v-row

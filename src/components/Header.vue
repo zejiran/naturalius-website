@@ -1,4 +1,5 @@
 <template>
+  <!--TODO: add mobile header-->
   <v-app-bar id="naturalius-main" app dark hide-on-scroll>
     <div class="d-flex align-center">
       <v-img
@@ -14,7 +15,7 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn v-for="item in sections" :key="item.text" text :href="item.href" @click="route(item.href)">
+    <v-btn v-for="item in sections" :key="item.text" :href="item.href" text @click="route(item.href)">
       <span class="mr-2">{{ item.text }}</span>
     </v-btn>
   </v-app-bar>
@@ -48,7 +49,7 @@ export default Vue.extend({
         text: 'About Us',
         href: '#track',
       },
-              {
+      {
         text: 'Products',
         href: '#products',
       },

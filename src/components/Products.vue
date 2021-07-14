@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container align-start id="products" class="naturalius-products" fluid justify-center>
+    <v-container id="products" align-start class="naturalius-products" fluid justify-center>
       <p class="pb-16 text-center text-h3 text-md-h2">Products</p>
 
       <v-row class="pt-16 px-16">
@@ -9,9 +9,7 @@
             :key="product"
             class="ma-auto"
             cols="12" md="3" sm="6">
-          <v-card
-
-          >
+          <v-card>
             <v-img
                 :src="product.image"
                 height="15rem"
