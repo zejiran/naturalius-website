@@ -78,7 +78,7 @@
 <style lang="scss">
 .naturalius {
   &-products {
-    background-color: #00838f;
+    background-color: #1C779E;
     padding: 10% 0 10% 0;
   }
 }

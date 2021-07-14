@@ -1,15 +1,15 @@
 <template>
-  <v-footer id="naturalius-main" bottom dark padless>
+  <v-footer id="naturalius-main" bottom padless>
     <v-row class="mt-12 mb-16" no-gutters>
-      <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Naturalius</strong>
-      </v-col>
-      <v-col class="text-center" cols="12">
+      <v-col class="text-center mb-5" cols="12">
         <v-btn v-for="reference in references" :key="reference.icon" :href="reference.href" icon>
-          <v-icon size="24px">
+          <v-icon color="black" size="24px">
             {{ reference.icon }}
           </v-icon>
         </v-btn>
+      </v-col>
+      <v-col class="text-center grey--text text-caption" cols="12">
+        © Naturalius {{ new Date().getFullYear() }}. All rights reserved.
       </v-col>
     </v-row>
   </v-footer>
@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
 #naturalius-main {
-  background-color: #4fb3bf
+  background-color: white
 }
 </style>
 
@@ -40,6 +40,14 @@ export default Vue.extend({
       {
         icon: 'mdi-youtube',
         href: 'https://www.youtube.com/channel/UC1U1DCSpBS9HOIY2dHS32Xw',
+      },
+      {
+        icon: 'mdi-twitter',
+        href: 'https://twitter.com/NaturaliusB',
+      },
+      {
+        icon: 'mdi-instagram',
+        href: 'https://www.instagram.com/naturaliusb/',
       },
     ],
   }),

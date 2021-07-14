@@ -1,12 +1,12 @@
 <template>
-  <v-app-bar id="naturalius-main" app>
+  <v-app-bar id="naturalius-main" dark app hide-on-scroll>
     <div class="d-flex align-center">
       <v-img
           alt="Naturalius Name"
           class="shrink mt-1"
           contain
           min-width="130"
-          src="@/assets/logos/naturalius-name.png"
+          src="@/assets/logos/naturalius1C769D.png"
           transition="scale-transition"
           width="200"
       />
@@ -22,7 +22,7 @@
 
 <style lang="scss" scoped>
 #naturalius-main {
-  background-color: white
+  background-color: #1C769D
 }
 </style>
 

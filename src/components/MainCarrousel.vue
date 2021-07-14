@@ -1,10 +1,7 @@
 <template>
   <v-carousel
-      :show-arrows="false"
       cycle
       height="67rem"
-      hide-delimiters
-      light
   >
     <v-carousel-item
         v-for="(item,i) in items"
@@ -15,18 +12,20 @@
           align="center"
           class="fill-height"
           justify="center"
-          style="background: rgba(23, 18, 25,0.5);"
+          style="background: rgba(23, 18, 25, 0.38);"
       >
-        <v-layout align-start class="naturalius-main" fluid justify-center>
-          <v-row class="pb-16 px-2" no-gutters>
-            <v-col class="text-center pb-2" cols="12">
-              <p id="title" class="font-weight-bold white--text">Taking nature to the next level</p>
+        <v-layout align-start class="naturalius-main px-5 pl-md-15 pl-xl-16" fluid justify-center>
+          <v-row class="pb-16 px-2 pl-xl-16" no-gutters>
+            <v-col class="pb-2" cols="12">
+              <p id="title" class="font-weight-bold white--text text-md-justify text-center">Taking nature to
+                the next level</p>
             </v-col>
-            <v-col class="text-center pb-15" cols="12">
-              <p id="subtitle" class="white--text">We make use of biotechnology to produce innovative compounds</p>
+            <v-col class="pb-15" cols="12">
+              <p id="subtitle" class="white--text text-md-justify text-center">We make use of biotechnology to
+                produce innovative compounds</p>
             </v-col>
-            <v-col class="text-center" cols="12">
-              <v-btn id="button" elevation="2" href="mailto:contact@naturalius.com.co" rounded text x-large>
+            <v-col class="text-md-justify text-center" cols="12">
+              <v-btn id="button" elevation="2" href="mailto:contact@naturalius.com.co" text x-large>
                 <span class="white--text">Contact us</span>
               </v-btn>
             </v-col>
@@ -58,7 +57,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .naturalius {
   &-main {
     padding: 20% 0 20% 0;
@@ -66,17 +65,25 @@ export default Vue.extend({
 }
 
 #title {
-  font-size: 3.2rem;
-  position: relative;
+  font-size: 5rem;
 }
 
 #subtitle {
-  font-size: 1.5rem;
-  position: relative;
+  font-size: 2rem;
 }
 
 #button {
-  background-color: #155977
+  background-color: #1C769D;
+}
+
+@media only screen and (max-width: 768px) and (max-device-width: 768px) {
+  #title {
+    font-size: 3.8rem;
+  }
+
+  #subtitle {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 400px) and (max-device-width: 400px) {
@@ -84,6 +91,10 @@ export default Vue.extend({
     &-main {
       padding: 30% 3% 35% 3%;
     }
+  }
+
+  #title {
+    font-size: 3.3rem;
   }
 }
 </style>
