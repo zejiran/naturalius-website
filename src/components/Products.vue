@@ -3,12 +3,12 @@
     <v-container id="products" align-start class="naturalius-products" fluid justify-center>
       <p class="pb-16 text-center text-h3 text-md-h2">What we offer?</p>
 
-      <v-row class="pt-12 px-16 mx-16 justify-center">
+      <v-row class="pt-12 px-xl-16 mx-md-16 mx-sm-7 mx-5 justify-center">
         <v-col
             v-for="product in products"
             :key="product"
             class="ma-xl-2"
-            cols="12" md="3" sm="6">
+            cols="12" xl="3" md="4" sm="6">
           <v-card>
             <lottie-animation
                 ref="animation"
