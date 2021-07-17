@@ -4,7 +4,7 @@
       height="67rem"
   >
     <v-carousel-item
-        v-for="(item,i) in items"
+        v-for="(item, i) in items"
         :key="i"
     >
       <v-row

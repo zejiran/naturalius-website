@@ -5,8 +5,8 @@
 
       <v-row class="pt-12 px-xl-16 mx-md-16 mx-sm-7 mx-5 justify-center">
         <v-col
-            v-for="product in products"
-            :key="product"
+            v-for="(product, key) in products"
+            :key="key"
             class="ma-xl-2"
             cols="12" md="4" sm="6" xl="3">
           <v-card>
