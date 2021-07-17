@@ -6,8 +6,8 @@
     <v-carousel-item
         v-for="(item,i) in items"
         :key="i"
+        :src="item.image"
         lazy-src="@/assets/images/carrousel-lazy.png"
-        :src="item"
     >
       <v-row
           align="center"
@@ -18,12 +18,10 @@
         <v-layout align-start class="naturalius-main px-5 pl-md-15 pl-xl-16" fluid justify-center>
           <v-row class="px-2 pl-xl-16" no-gutters>
             <v-col cols="12">
-              <p id="title" class="font-weight-bold white--text text-md-justify text-center">Taking biology to
-                the next level</p>
+              <p id="title" class="font-weight-bold white--text text-md-left text-center">{{item.title}}</p>
             </v-col>
             <v-col class="pb-15" cols="12">
-              <p id="subtitle" class="white--text text-md-justify text-center">We make use of biotechnology to
-                produce innovative compounds</p>
+              <p id="subtitle" class="white--text text-md-left text-center">{{item.text}}</p>
             </v-col>
             <v-col class="text-md-justify text-center" cols="12">
               <v-btn id="button" elevation="5" href="mailto:contact@naturalius.com.co" raised text x-large>
@@ -44,8 +42,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import DHFR from '@/assets/videos/DHFR.gif'
-import GARFT from '@/assets/videos/GARFT.gif'
 import TS from '@/assets/videos/TS.gif'
 
 export default Vue.extend({
@@ -53,11 +49,23 @@ export default Vue.extend({
 
   data() {
     return {
-      items: [
-        DHFR,
-        GARFT,
-        TS
-      ],
+      items: {
+        1: {
+          'title': 'Taking biology to the next level',
+          'text': 'We make use of biotechnology to produce innovative compounds',
+          'image': TS,
+        },
+        2: {
+          'title': 'Harness the endless power of nature',
+          'text': 'Our tremendous biodiversity represents a unique chance of taking advantage of an extraordinarily immense reservoir of molecules',
+          'image': TS,
+        },
+        3: {
+          'title': 'Computation sparks chemical discovery',
+          'text': 'The integration of advanced methods in the realm of chemistry and computing provide unprecedent techological advances and opportunities',
+          'image': TS,
+        },
+      }
     }
   },
 })
@@ -72,10 +80,12 @@ export default Vue.extend({
 
 #title {
   font-size: 5rem;
+  padding-right: 5%;
 }
 
 #subtitle {
   font-size: 2rem;
+  padding-right: 15%;
 }
 
 #button {
@@ -89,10 +99,12 @@ export default Vue.extend({
 @media only screen and (max-width: 768px) and (max-device-width: 768px) {
   #title {
     font-size: 3.8rem;
+    padding-right: 0;
   }
 
   #subtitle {
     font-size: 1.5rem;
+    padding-right: 0;
   }
 }
 
