@@ -16,8 +16,8 @@
           style="background: rgba(23, 18, 25, 0.38);"
       >
         <v-layout align-start class="naturalius-main px-5 pl-md-15 pl-xl-16" fluid justify-center>
-          <v-row class="pb-16 px-2 pl-xl-16" no-gutters>
-            <v-col class="pb-2" cols="12">
+          <v-row class="px-2 pl-xl-16" no-gutters>
+            <v-col cols="12">
               <p id="title" class="font-weight-bold white--text text-md-justify text-center">Taking nature to
                 the next level</p>
             </v-col>
@@ -29,7 +29,8 @@
               <v-btn id="button" elevation="5" href="mailto:contact@naturalius.com.co" raised text x-large>
                 <span class="white--text">Contact us</span>
               </v-btn>
-              <v-btn id="button-2" class="ml-5 hidden-sm-and-down" elevation="2" href="https://calendly.com/naturaliusbiotech/30min" raised
+              <v-btn id="button-2" class="ml-5 hidden-sm-and-down" elevation="2"
+                     href="https://calendly.com/naturaliusbiotech/30min" raised
                      x-large>
                 <span class="white--text">Request a demo</span>
               </v-btn>
@@ -65,7 +66,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .naturalius {
   &-main {
-    padding: 20% 0 20% 0;
+    padding: 14% 0 20% 0;
   }
 }
 

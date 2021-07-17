@@ -9,3 +9,11 @@ declare module "*.png" {
 declare module "*.gif" {
   export default "" as string;
 }
+
+declare module "*.webm" {
+  export default "" as string;
+}
+
+declare module "*.json" {
+  export default "" as string;
+}

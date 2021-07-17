@@ -10,10 +10,13 @@
             class="ma-auto"
             cols="12" md="3" sm="6">
           <v-card>
-            <v-img
-                :src="product.image"
-                height="15rem"
-            ></v-img>
+            <lottie-animation
+                ref="animation"
+                :animationData="product.image"
+                :autoPlay="true"
+                :loop="true"
+                :speed="1"
+            />
 
             <v-card-title id="product-title" class="text-justify">{{ product.title }}</v-card-title>
 
@@ -66,43 +69,57 @@
 
 <script lang="ts">
 import {Vue} from "vue-property-decorator";
-import p1 from "@/assets/images/nature/nature-1.jpg";
-import p2 from "@/assets/images/nature/nature-2.jpg";
-import p3 from "@/assets/images/nature/nature-3.jpg";
-import p4 from "@/assets/images/nature/nature-4.jpg";
+import p1 from "@/assets/lottie/rendering.json";
+import p2 from "@/assets/lottie/search.json";
+import p3 from "@/assets/lottie/syncing.json";
+import p4 from "@/assets/lottie/setting.json";
+import p5 from "@/assets/lottie/processing.json";
+import LottieAnimation from 'lottie-web-vue'
+
+Vue.use(LottieAnimation)
 
 export default Vue.extend({
   name: 'Products',
 
+  components: {
+    LottieAnimation
+  },
   data: () => ({
     products: {
       1: {
-        'title': 'Fragment-enhanced option',
-        'subtitle': 'Design your molecule',
+        'title': 'Molecule design',
+        'subtitle': 'Design your own library of molecules',
         'image': p1,
         'show': false,
-        'text': 'Computational design of molecules of interest in academia and industry (pharmaceutical, cosmetics and others in the biotechnology area), especially using product databases natural. Different parts of molecules can be combined to generate new ones, which is a strength of our work team.',
+        'text': 'Computational design of molecules of interest is a key area in academia and industries including pharma, cosmetics, and food, among others. Our team can use different parts of chemical compounds to construct novel chemical libraries, including especially those based on natural products because of their intrinsic chemical diversity and functionality.',
       },
       2: {
-        'title': 'Hit-identification phase',
+        'title': 'Hit-identification',
         'subtitle': 'We look for the molecule of your dreams',
         'image': p2,
         'show': false,
-        'text': 'Study of molecules through a process of search and selection among thousands or millions of them, in order to discover new chemical structures and/or biological activities of interest. This allows to significantly reduce time, costs and number of experiments.',
+        'text': 'We search and select molecules among thousands or millions of them to discover innovative chemical structures and/or biological activities of interest. The iterative processing of structure- and ligand-based techniques using massive parallel computing architecture and cutting-edge algorithms allows to significantly reduce time, costs and number of experiments.',
       },
       3: {
         'title': 'Biomolecule simulator',
         'subtitle': 'We make sure that your molecule behaves well',
         'image': p3,
         'show': false,
-        'text': 'We offer a very innovative platform to carry out various calculations such as the characterization, simulation and evaluation of molecules, which are not possible without the necessary capacity of hardware, software and specialized knowledge in the area.',
+        'text': 'Characterization, simulation, and evaluation of molecules demand not only a large capacity of hardware and software, but also a specialized knowledge in the area. We offer a very innovative platform to carry out large-scale calculations to predicts dynamic behavior and potency of your molecules according to the interaction with their biological target.',
       },
       4: {
-        'title': 'Synthesis-planner option',
-        'subtitle': 'Bring your molecule to the market',
+        'title': 'Property profiling',
+        'subtitle': 'Bring your molecule to the lab and the market',
         'image': p4,
         'show': false,
-        'text': 'Our team offers support for the optimization and balance of properties of interest in candidate molecules such as affinity, solubility and chemical diversity. This step usually plays a role key in the planning of future experiments required by our clients.',
+        'text': 'Our team offers support for the optimization and balance of properties of interest in candidate molecules such as affinity, solubility, and chemical diversity. This step plays a role key in the planning of future experiments required by our clients, by evaluating synthetic complexity, prioritizing synthetic routes, and proposing potential isosteric modifications during the hit–to-lead optimization.',
+      },
+      5: {
+        'title': 'Biochemtion',
+        'subtitle': 'Boost your prediction power and improve your processes',
+        'image': p5,
+        'show': false,
+        'text': 'All the industrial processes continuously demand adjustments to improve productivity and reduce operating costs. Our experts in engineering and informatics can develop a detailed understanding of your business and generate powerful algorithms for predictive modeling based on big data analytics (BDA) technologies such as novel machine learning (ML) or deep learning (DL).',
       },
     }
   }),
