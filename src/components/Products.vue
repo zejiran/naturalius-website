@@ -8,15 +8,24 @@
             v-for="product in products"
             :key="product"
             class="ma-xl-2"
-            cols="12" xl="3" md="4" sm="6">
+            cols="12" md="4" sm="6" xl="3">
           <v-card>
-            <lottie-animation
-                ref="animation"
-                :animationData="product.image"
-                :autoPlay="true"
-                :loop="true"
-                :speed="1"
-            />
+            <v-lazy
+                v-model="isActive"
+                :options="{
+                  threshold: .9
+                 }"
+                min-height="200"
+                transition="scale-transition"
+            >
+              <lottie-animation
+                  ref="animation"
+                  :animationData="product.image"
+                  :autoPlay="true"
+                  :loop="true"
+                  :speed="1"
+              />
+            </v-lazy>
 
             <v-card-title id="product-title" class="text-justify">{{ product.title }}</v-card-title>
 
@@ -85,6 +94,7 @@ export default Vue.extend({
     LottieAnimation
   },
   data: () => ({
+    isActive: false,
     products: {
       1: {
         'title': 'Molecule design',

@@ -2,20 +2,29 @@
   <v-container id="track" align-start fluid justify-center>
     <v-row>
       <v-col class="text-center definition" cols="12" md="6">
-        <p class="pb-5 text-justify text-h3 text-md-h2">Who we are?</p>
+        <p class="pt-16 pb-5 text-justify text-h3 text-md-h2">Who we are?</p>
         <p class="text-justify">Naturalius is a Latin American startup that revolutionizes the design and discovery of
           new molecules through biotechnology. We have an interdisciplinary group of experts in biology, chemistry,
           informatics, and engineering focused on satisfying specific needs of our clients.
         </p>
       </v-col>
-      <v-col class="text-center text-container" cols="12" md="6">
-        <lottie-animation
-            ref="Naturalius AI"
-            :animationData="require('@/assets/lottie/programming.json')"
-            :autoPlay="true"
-            :loop="true"
-            :speed="1"
-        />
+      <v-col class="text-center" cols="12" md="6">
+        <v-lazy
+            v-model="isActive"
+            :options="{
+          threshold: .5
+        }"
+            min-height="500"
+            transition="scale-transition"
+        >
+          <lottie-animation
+              ref="Naturalius AI"
+              :animationData="require('@/assets/lottie/programming.json')"
+              :autoPlay="true"
+              :loop="true"
+              :speed="1"
+          />
+        </v-lazy>
       </v-col>
     </v-row>
   </v-container>
@@ -34,7 +43,7 @@
 
 #track {
   font-size: 1.3rem;
-  padding-top: 13%;
+  padding-top: 10%;
   padding-bottom: 15%;
 }
 
@@ -68,6 +77,9 @@ Vue.use(LottieAnimation)
 export default Vue.extend({
   name: 'Track',
 
+  data: () => ({
+    isActive: false,
+  }),
   components: {
     LottieAnimation
   },
