@@ -3,17 +3,19 @@
     <v-row>
       <v-col class="text-center definition" cols="12" md="6">
         <p class="pb-5 text-justify text-h3 text-md-h2">Who we are?</p>
-        <p class="text-justify">Naturalius is a Latin American startup that revolutionizes the design and
-          discovery
-          of
-          new molecules through technology. We have an interdisciplinary group of experts in biology, chemistry,
-          informatics and engineering with extensive experience in cutting-edge technologies, advanced automation
-          systems and the best practice models, which allows us to achieve the highest quality in the creation of
-          value, satisfy specific needs and ensure a competitive advantage for our clients.
+        <p class="text-justify">Naturalius is a Latin American startup that revolutionizes the design and discovery of
+          new molecules through biotechnology. We have an interdisciplinary group of experts in biology, chemistry,
+          informatics, and engineering focused on satisfying specific needs of our clients.
         </p>
       </v-col>
       <v-col class="text-center text-container" cols="12" md="6">
-        <v-img alt="Naturalius AI" src="@/assets/images/creative_experiment.svg" transition="slide-x-transition"/>
+        <lottie-animation
+            ref="Naturalius AI"
+            :animationData="require('@/assets/lottie/programming.json')"
+            :autoPlay="true"
+            :loop="true"
+            :speed="1"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -45,22 +47,29 @@
 
 @media only screen and (max-width: 958px) and (max-device-width: 958px) {
   .definition {
-    padding-right:3%;
+    padding-right: 3%;
     padding-left: 3%;
   }
 }
 
 @media only screen and (max-width: 958px) and (max-device-width: 958px) {
-#track {
-  font-size: 1.1rem;
-}
+  #track {
+    font-size: 1.1rem;
+  }
 }
 </style>
 
 <script lang="ts">
 import {Vue} from "vue-property-decorator";
+import LottieAnimation from 'lottie-web-vue';
+
+Vue.use(LottieAnimation)
 
 export default Vue.extend({
   name: 'Track',
+
+  components: {
+    LottieAnimation
+  },
 })
 </script>

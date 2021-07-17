@@ -74,7 +74,7 @@ import p2 from "@/assets/lottie/search.json";
 import p3 from "@/assets/lottie/syncing.json";
 import p4 from "@/assets/lottie/setting.json";
 import p5 from "@/assets/lottie/processing.json";
-import LottieAnimation from 'lottie-web-vue'
+import LottieAnimation from 'lottie-web-vue';
 
 Vue.use(LottieAnimation)
 
