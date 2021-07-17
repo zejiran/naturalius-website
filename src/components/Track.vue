@@ -9,22 +9,13 @@
         </p>
       </v-col>
       <v-col class="text-center" cols="12" md="6">
-        <v-lazy
-            v-model="isActive"
-            :options="{
-          threshold: .5
-        }"
-            min-height="500"
-            transition="scale-transition"
-        >
           <lottie-animation
-              ref="Naturalius AI"
+              ref="Naturalius Definition"
               :animationData="require('@/assets/lottie/programming.json')"
               :autoPlay="true"
               :loop="true"
               :speed="1"
           />
-        </v-lazy>
       </v-col>
     </v-row>
   </v-container>
@@ -77,9 +68,6 @@ Vue.use(LottieAnimation)
 export default Vue.extend({
   name: 'Track',
 
-  data: () => ({
-    isActive: false,
-  }),
   components: {
     LottieAnimation
   },

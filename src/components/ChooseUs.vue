@@ -2,14 +2,6 @@
   <v-container id="choose-us" align-start fluid justify-center>
     <v-row>
       <v-col class="text-center img-container" cols="12" md="6">
-        <v-lazy
-            v-model="isActive"
-            :options="{
-          threshold: .5
-        }"
-            min-height="200"
-            transition="scale-transition"
-        >
           <lottie-animation
               ref="Naturalius AI"
               :animationData="require('@/assets/lottie/screens.json')"
@@ -17,7 +9,6 @@
               :loop="true"
               :speed="1"
           />
-        </v-lazy>
       </v-col>
       <v-col class="text-center definition" cols="12" md="6">
         <p class="pb-5 text-left text-h3 text-md-h2">Why to choose Naturalius?</p>
@@ -76,9 +67,6 @@ Vue.use(LottieAnimation)
 export default Vue.extend({
   name: 'ChooseUs',
 
-  data: () => ({
-    isActive: false,
-  }),
   components: {
     LottieAnimation
   },
