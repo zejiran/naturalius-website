@@ -11,6 +11,9 @@
       <v-col class="text-center grey--text text-caption" cols="12">
         © Naturalius {{ new Date().getFullYear() }}. All rights reserved.
       </v-col>
+      <v-col class="text-center grey--text lighten-5 text-caption" cols="12">
+        Keep in touch: contact@naturalius.com.co
+      </v-col>
     </v-row>
   </v-footer>
 </template>

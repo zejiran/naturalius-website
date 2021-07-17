@@ -17,3 +17,5 @@ declare module "*.webm" {
 declare module "*.json" {
   export default "" as string;
 }
+
+declare module 'lottie-web-vue';
