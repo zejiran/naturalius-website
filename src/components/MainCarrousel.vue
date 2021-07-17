@@ -6,22 +6,29 @@
     <v-carousel-item
         v-for="(item,i) in items"
         :key="i"
-        :src="item.image"
-        lazy-src="@/assets/images/carrousel-lazy.png"
     >
       <v-row
           align="center"
-          class="fill-height"
           justify="center"
-          style="background: rgba(23, 18, 25, 0.38);"
+          style="background: rgba(23, 18, 25, 0.38); height: 105%"
       >
+
+        <video v-if="item.video" autoplay="autoplay" class="fill-height" loop="loop" muted playsinline
+               style="z-index: -1; top:0;position: absolute;">
+          <source :src="item.video[0]" type="video/webm">
+          <source :src="item.video[1]" type="video/mp4">
+        </video>
+        <img v-if="item.image" :src="item.image" alt="carrousel-image" class="fill-height"
+             style="z-index: -1; top: 0;position: absolute;">
+        <div :style="item.background"></div>
+
         <v-layout align-start class="naturalius-main px-5 pl-md-15 pl-xl-16" fluid justify-center>
           <v-row class="px-2 pl-xl-16" no-gutters>
             <v-col cols="12">
-              <p id="title" class="font-weight-bold white--text text-md-left text-center">{{item.title}}</p>
+              <p id="title" class="font-weight-bold white--text text-md-left text-center">{{ item.title }}</p>
             </v-col>
             <v-col class="pb-15" cols="12">
-              <p id="subtitle" class="white--text text-md-left text-center">{{item.text}}</p>
+              <p id="subtitle" class="white--text text-md-left text-center">{{ item.text }}</p>
             </v-col>
             <v-col class="text-md-justify text-center" cols="12">
               <v-btn id="button" elevation="5" href="mailto:contact@naturalius.com.co" raised text x-large>
@@ -42,7 +49,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import TS from '@/assets/videos/TS.gif'
+import tech from '@/assets/images/tech-chemistry.jpeg'
+import TS from '@/assets/videos/TS.webm'
+import TSmp4 from '@/assets/videos/TS.mp4'
+import EZ from '@/assets/videos/enzima.webm'
+import EZmp4 from '@/assets/videos/enzima.mp4'
 
 export default Vue.extend({
   name: "MainCarrousel",
@@ -53,17 +64,23 @@ export default Vue.extend({
         1: {
           'title': 'Taking biology to the next level',
           'text': 'We make use of biotechnology to produce innovative compounds',
-          'image': TS,
+          'image': '',
+          'video': [TS, TSmp4],
+          'background': 'background-color: black; height: 100%; width: 100%; position:absolute; top:0; z-index: -2',
         },
         2: {
           'title': 'Harness the endless power of nature',
           'text': 'Our tremendous biodiversity represents a unique chance of taking advantage of an extraordinarily immense reservoir of molecules',
-          'image': TS,
+          'image': tech,
+          'video': '',
+          'background': 'background-color: #184154; height: 100%; width: 100%; position:absolute; top:0; z-index: -2',
         },
         3: {
           'title': 'Computation sparks chemical discovery',
           'text': 'The integration of advanced methods in the realm of chemistry and computing provide unprecedent techological advances and opportunities',
-          'image': TS,
+          'image': '',
+          'video': [EZ, EZmp4],
+          'background': 'background-color: white; height: 100%; width: 100%; position:absolute; top:0; z-index: -2',
         },
       }
     }

@@ -74,7 +74,7 @@ import LottieAnimation from 'lottie-web-vue';
 Vue.use(LottieAnimation)
 
 export default Vue.extend({
-  name: 'Choose Us',
+  name: 'ChooseUs',
 
   data: () => ({
     isActive: false,
