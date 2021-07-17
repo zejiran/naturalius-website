@@ -18,7 +18,7 @@
         <v-layout align-start class="naturalius-main px-5 pl-md-15 pl-xl-16" fluid justify-center>
           <v-row class="px-2 pl-xl-16" no-gutters>
             <v-col cols="12">
-              <p id="title" class="font-weight-bold white--text text-md-justify text-center">Taking nature to
+              <p id="title" class="font-weight-bold white--text text-md-justify text-center">Taking biology to
                 the next level</p>
             </v-col>
             <v-col class="pb-15" cols="12">

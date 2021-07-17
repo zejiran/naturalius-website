@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container id="products" align-start class="naturalius-products" fluid justify-center>
-      <p class="pb-16 text-center text-h3 text-md-h2">Products</p>
+      <p class="pb-16 text-center text-h3 text-md-h2">What we offer?</p>
 
       <v-row class="pt-16 px-16">
         <v-col
@@ -49,7 +49,7 @@
 <style lang="scss">
 .naturalius {
   &-products {
-    background-color: rgba(167, 218, 240, 0.4);
+    background-color: rgba(167, 218, 240, 0.25);
     padding: 10% 0 20% 0;
   }
 }

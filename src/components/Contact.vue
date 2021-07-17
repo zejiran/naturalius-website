@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background-color: rgba(167, 218, 240, 0.25);">
     <v-container class="py-16" fluid>
       <p class="py-16 text-center text-h3 text-md-h2">Build the future of biotech with Naturalius</p>
       <v-row>
