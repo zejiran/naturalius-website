@@ -33,7 +33,7 @@
 }
 
 #track {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   padding-top: 10%;
   padding-bottom: 15%;
 }

@@ -9,7 +9,7 @@
             :key="key"
             class="ma-xl-2"
             cols="12" md="4" sm="6" xl="3">
-          <v-card>
+          <v-card min-height="100%">
               <lottie-animation
                   ref="animation"
                   :animationData="product.image"
@@ -18,9 +18,9 @@
                   :speed="1"
               />
 
-            <v-card-title id="product-title" class="text-justify">{{ product.title }}</v-card-title>
+            <v-card-title style="font-size: 1.6rem !important;" class="text-justify">{{ product.title }}</v-card-title>
 
-            <v-card-subtitle class="text-caption">{{ product.subtitle }}</v-card-subtitle>
+            <v-card-subtitle class="text-caption pt-1" style="font-size: 1.1rem !important;">{{ product.subtitle }}</v-card-subtitle>
 
             <v-card-actions>
               <!--TODO:<v-btn color="blue lighten-2" text>More</v-btn>-->
@@ -36,7 +36,7 @@
               <div v-show="product.show">
                 <v-divider></v-divider>
 
-                <v-card-text>{{ product.text }}</v-card-text>
+                <v-card-text style="font-size: 0.9rem !important;">{{ product.text }}</v-card-text>
               </div>
             </v-expand-transition>
           </v-card>
@@ -50,7 +50,7 @@
 .naturalius {
   &-products {
     background-color: rgba(167, 218, 240, 0.25);
-    padding: 10% 0 20% 0;
+    padding: 10% 0 15% 0;
   }
 }
 
@@ -59,10 +59,6 @@
     &-products {
       padding: 20% 0 20% 0;
     }
-  }
-
-  #product-title {
-    font-size: 1rem;
   }
 }
 </style>
@@ -95,7 +91,7 @@ export default Vue.extend({
       },
       2: {
         'title': 'Hit-identification',
-        'subtitle': 'We look for the molecule of your dreams',
+        'subtitle': 'We find virtual candidates among millions of compounds',
         'image': p2,
         'show': false,
         'text': 'We search and select molecules among thousands or millions of them to discover innovative chemical structures and/or biological activities of interest. The iterative processing of structure- and ligand-based techniques using massive parallel computing architecture and cutting-edge algorithms allows to significantly reduce time, costs and number of experiments.',
@@ -119,7 +115,7 @@ export default Vue.extend({
         'subtitle': 'Boost your prediction power and improve your processes',
         'image': p5,
         'show': false,
-        'text': 'All the industrial processes continuously demand adjustments to improve productivity and reduce operating costs. Our experts in engineering and informatics can develop a detailed understanding of your business and generate powerful algorithms for predictive modeling based on big data analytics (BDA) technologies such as novel machine learning (ML) or deep learning (DL).',
+        'text': 'All the industrial processes continuously demand adjustments to improve productivity and reduce operating costs. Our experts in engineering and informatics can develop a detailed understanding of your business and generate novel powerful algorithms for predictive modeling based on big data analytics (BDA) technologies such as machine learning (ML) or deep learning (DL).',
       },
     }
   }),

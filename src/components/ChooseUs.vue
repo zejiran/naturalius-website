@@ -32,7 +32,7 @@
 }
 
 #choose-us {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   padding-top: 8%;
   padding-bottom: 7%;
 }
@@ -52,7 +52,7 @@
 }
 
 @media only screen and (max-width: 958px) and (max-device-width: 958px) {
-  #track {
+  #choose-us {
     font-size: 1.1rem;
   }
 }
