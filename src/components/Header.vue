@@ -43,7 +43,7 @@ export default Vue.extend({
     sections: [
       {
         text: 'Home',
-        href: '/',
+        href: '#',
       },
       {
         text: 'About Us',
