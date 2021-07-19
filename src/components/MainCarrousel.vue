@@ -63,7 +63,7 @@ export default Vue.extend({
       items: {
         1: {
           'title': 'Taking biology to the next level',
-          'text': 'We make use of biotechnology to produce innovative compounds',
+          'text': 'We make use of biotechnology to produce innovative compounds, predictive models, and simulations for chemical processes of the utmost importance',
           'image': '',
           'video': [TS, TSmp4],
           'background': 'background-color: black; height: 100%; width: 100%; position:absolute; top:0; z-index: -2',
