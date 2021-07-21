@@ -77,7 +77,7 @@ export default Vue.extend({
         },
         3: {
           'title': 'Computation sparks chemical discovery',
-          'text': 'The integration of advanced methods in the realm of chemistry and computing provide unprecedent techological advances and opportunities',
+          'text': 'The integration of advanced methods in the realm of chemistry and computing provide unprecedent technological advances and opportunities',
           'image': '',
           'video': [EZ, EZmp4],
           'background': 'background-color: white; height: 100%; width: 100%; position:absolute; top:0; z-index: -2',
