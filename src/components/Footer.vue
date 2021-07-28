@@ -42,6 +42,10 @@ export default Vue.extend({
         href: 'https://www.linkedin.com/company/naturalius',
       },
       {
+        icon: 'mdi-facebook',
+        href: 'https://www.facebook.com/Naturalius-103996428632104/',
+      },
+      {
         icon: 'mdi-github',
         href: 'https://github.com/naturalius',
       },
