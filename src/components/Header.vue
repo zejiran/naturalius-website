@@ -15,7 +15,7 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn v-for="item in sections" :key="item.text" :href="item.href" text @click="route(item.href)">
+    <v-btn v-for="item in sections" :key="item.text" text @click="route(item.href)">
       <span class="mr-2">{{ item.text }}</span>
     </v-btn>
   </v-app-bar>
@@ -43,15 +43,11 @@ export default Vue.extend({
     sections: [
       {
         text: 'Home',
-        href: '#',
+        href: '/',
       },
       {
         text: 'About Us',
-        href: '#track',
-      },
-      {
-        text: 'Products',
-        href: '#products',
+        href: '/team',
       },
     ],
   }),
