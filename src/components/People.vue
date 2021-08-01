@@ -7,7 +7,7 @@
           cols="12"
       >
         <v-card
-            max-width="70%"
+            width="75%"
             class="mx-auto pa-md-9 pr-6 my-5"
         >
           <div class="d-md-flex flex-no-wrap justify-space-between">
