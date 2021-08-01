@@ -9,6 +9,18 @@
         </v-col>
       </v-row>
     </v-layout>
+
+    <v-layout align-center justify-center fluid class="pa-16">
+      <v-row class="pa-16" no-gutters>
+        <v-col class="mx-md-16 mx-auto" cols="12">
+          <p class="text-md-h2 text-h4">At Naturalius we share the same passion for new and fascinating discoveries in
+            biotechnology.</p>
+          <p class="text-md-h4 text-h6 pt-8">We are a company created through friendship, creativity and scientific curiosity.</p>
+        </v-col>
+      </v-row>
+    </v-layout>
+    <v-divider></v-divider>
+
   </div>
 </template>
 

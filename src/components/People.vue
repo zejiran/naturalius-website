@@ -7,8 +7,8 @@
           cols="12"
       >
         <v-card
-            width="75%"
-            class="mx-auto pa-md-9 pr-6 my-5"
+            id="people-card"
+            class="mx-md-auto mr-2 pa-md-9 pr-6 my-5"
         >
           <div class="d-md-flex flex-no-wrap justify-space-between">
             <v-avatar rounded class="ma-3" id="profile" style="width: 100%; height: auto">
@@ -119,7 +119,15 @@ export default Vue.extend({
   width: 100%;
 }
 
+#people-card {
+  width: 100%;
+}
+
 @media only screen and (min-width: 960px) and (min-device-width: 960px) {
+#people-card {
+  width: 75%;
+}
+
   #information {
     width: 65% !important;
     height: auto !important;

@@ -1,6 +1,6 @@
 <template>
   <!--TODO: add mobile header-->
-  <v-app-bar id="naturalius-main" app dark hide-on-scroll>
+  <v-app-bar id="naturalius-bar" app dark hide-on-scroll>
     <div class="d-flex align-center">
       <v-img
           alt="Naturalius Name"
@@ -13,16 +13,16 @@
       />
     </div>
 
-    <v-spacer></v-spacer>
+    <v-spacer class="hidden-sm-and-down"></v-spacer>
 
-    <v-btn v-for="item in sections" :key="item.text" text @click="route(item.href)">
+    <v-btn class="hidden-sm-and-down" v-for="item in sections" :key="item.text" text @click="route(item.href)">
       <span class="mr-2">{{ item.text }}</span>
     </v-btn>
   </v-app-bar>
 </template>
 
 <style lang="scss" scoped>
-#naturalius-main {
+#naturalius-bar {
   background-color: #1C769D
 }
 </style>
