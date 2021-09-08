@@ -49,6 +49,10 @@ export default Vue.extend({
         text: 'About Us',
         href: '/team',
       },
+      {
+        text: 'Login',
+        href: '/login',
+      },
     ],
   }),
 })
