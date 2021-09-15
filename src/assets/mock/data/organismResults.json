@@ -1,0 +1,11 @@
+[
+  {
+    "organismName": "MO_NAME",
+    "organismImage": "cocoa.jpeg",
+    "compoundGroup": "CMP_GROUP",
+    "compoundName": "CMP_NAME",
+    "compoundImage": "cocoa.jpeg",
+    "characteristic": "REPLACE",
+    "compoundType": "GOOD"
+  }
+]

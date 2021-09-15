@@ -92,39 +92,64 @@
 
       <div v-if="this.tab === 0">
         <div class="ma-16 mb-10">
-          <h1 class="text-h4 font-weight-bold">
-            Your last report results
-          </h1>
-          <p class="text--lighten-2 mt-3">This report identified with the RCL035 ID was obtained on 09/18/21</p>
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            16S sequence representation
-          </h1>
+          <div class="ma-16 mb-10">
+            <h1 class="text-h4 font-weight-bold">
+              Start searching relations by 16S
+            </h1>
+            <v-text-field
+                class="mt-10 mb-5"
+                filled
+                label="Paste a 16S sequence">
+            </v-text-field>
+            <v-btn @click="showSingleSearch">Search</v-btn>
+          </div>
+
+          <v-container v-if="this.searched">
+            <h1 class="text-h5 mt-16 font-weight-bold">
+              16S sequence representation
+            </h1>
+            <apexchart :options="chartOptions" :series="series" height="450" type="heatmap"></apexchart>
+
+            <h1 class="text-h5 mt-16 font-weight-bold">
+              Result details
+            </h1>
+            <v-card v-for="organism in this.organismData" :key="organism" class="pa-16 ma-16">
+              <v-row>
+                <v-col cols="4">
+                  <h1 class="text-h4 pb-6">
+                    {{ organism.organismName }}
+                  </h1>
+                  <v-img :src="require(`@/assets/images/${organism.organismImage}`)"
+                         max-height="300" max-width="300"></v-img>
+                </v-col>
+                <v-col class="mt-16" cols="4">
+                  <p class="">
+                    Compound group: {{ organism.compoundGroup }}
+                  </p>
+                  <p class="">
+                    Characteristic: {{ organism.characteristic }}
+                  </p>
+                  <p class="">
+                    Compound type: {{ organism.compoundType }}
+                  </p>
+                </v-col>
+                <v-col cols="4">
+                  <h1 class="text-h4 pb-6">
+                    {{ organism.compoundName }}
+                  </h1>
+                  <v-img :src="require(`@/assets/images/${organism.compoundImage}`)"
+                         max-height="300" max-width="300"></v-img>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-container>
         </div>
-        <apexchart :options="chartOptions" :series="series" height="450" type="heatmap"></apexchart>
       </div>
 
       <div v-if="this.tab === 1">
         <div class="ma-16 mb-10">
           <h1 class="text-h4 font-weight-bold">
-            Start searching relations by 16S
-          </h1>
-          <v-text-field
-              class="mt-10 mb-5"
-              filled
-              label="Insert your 16S sequence">
-          </v-text-field>
-          <v-btn @click="showSingleSearch">Search</v-btn>
-
-          <div v-if="searched">
-
-          </div>
-        </div>
-      </div>
-
-      <div v-if="this.tab === 2">
-        <div class="ma-16 mb-10">
-          <h1 class="text-h4 font-weight-bold">
-            Filtered results by group
+            Past reports
           </h1>
           <p class="text--lighten-2 mt-3"></p>
 
@@ -235,7 +260,8 @@
 <script lang="ts">
 import Vue from "vue";
 import VueApexCharts from 'vue-apexcharts'
-import kmersJson from '@/assets/mock/HeatMap1.json'
+import kmersJson from '@/assets/mock/data/HeatMap1.json'
+import organismJson from '@/assets/mock/data/organismResults.json'
 
 Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
@@ -250,19 +276,11 @@ export default Vue.extend({
     searched: false,
     topBarItems: [
       {
-        name: 'Home',
-        text: 'Your last activity reports at a glance.',
+        name: 'Search',
+        text: 'Search microorganisms using a 16S ribosomal RNA sequence and then create a report.',
       },
       {
-        name: 'Single Search',
-        text: 'Search microorganisms using a 16S ribosomal RNA sequence.',
-      },
-      {
-        name: 'Search by Group',
-        text: 'See your generated groups and clasifications, for manually searching a element.',
-      },
-      {
-        name: 'Results History',
+        name: 'Reports History',
         text: 'Download your past reports.',
       },
     ],
@@ -289,8 +307,26 @@ export default Vue.extend({
       },
     ],
     json: {},
-
-    series: [{name: 's', data: [{x: '', y: 0}]}],
+    completeOrganismData: [{
+      "organismName": "MO_NAME",
+      "organismImage": "./../../assets/images/cocoa.jpeg",
+      "compoundGroup": "CMP_GROUP",
+      "compoundName": "CMP_NAME",
+      "compoundImage": "@/assets/mock/images/compound/",
+      "characteristic": "REPLACE",
+      "compoundType": "GOOD"
+    }],
+    organismData: [{
+      "organismName": "MO_NAME",
+      "organismImage": "./../../assets/images/cocoa.jpeg",
+      "compoundGroup": "CMP_GROUP",
+      "compoundName": "CMP_NAME",
+      "compoundImage": "@/assets/mock/images/compound/",
+      "characteristic": "REPLACE",
+      "compoundType": "GOOD"
+    }],
+    completeDataSeries: [{name: 'n', data: [{x: '', y: 0}]}],
+    series: [{name: 'n', data: [{x: '', y: 0}]}],
     chartOptions: {
       legend: {
         position: 'bottom',
@@ -385,7 +421,6 @@ export default Vue.extend({
       for (let j = 0; j < json.length; j++) {
         let obj = JSON.parse(JSON.stringify(json[j]))
         let keys: string[] = Object.keys(obj)
-        console.log(keys)
 
         let kmers = []
         for (let k = 1; k < keys.length; k++) {
@@ -397,24 +432,38 @@ export default Vue.extend({
           kmers.push(kmer)
         }
 
-        console.log({
-          name: obj.Organism,
-          data: kmers
-        })
-
-        this.series.push({
+        this.completeDataSeries.push({
           name: obj.Organism,
           data: kmers
         })
       }
     },
+    generateDataDescriptions() {
+      let json = organismJson
+      for (let j = 0; j < json.length; j++) {
+        let obj = JSON.parse(JSON.stringify(json[j]))
+        this.completeOrganismData.push(obj)
+      }
+    },
     showSingleSearch() {
       this.searched = true
+
+      // Heatmap
+      let element: any = this.completeDataSeries.shift()
+      this.series.push(element)
+
+      // Description
+      let organism: any = this.completeOrganismData.shift()
+      this.organismData.push(organism)
     }
   },
   beforeMount() {
     this.generateDataSeries()
+    this.generateDataDescriptions()
     this.series.shift()
+    this.completeDataSeries.shift()
+    this.organismData.shift()
+    this.completeOrganismData.shift()
   }
 })
 </script>
