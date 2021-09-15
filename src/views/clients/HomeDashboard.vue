@@ -142,6 +142,12 @@
                 </v-col>
               </v-row>
             </v-card>
+
+            <v-row class="mt-16" style="width: 100%; text-align: center">
+              <v-col>
+                <v-btn color="#1C769D" dark width="500" @click="saveSession">Save session on reports</v-btn>
+              </v-col>
+            </v-row>
           </v-container>
         </div>
       </div>
@@ -455,6 +461,9 @@ export default Vue.extend({
       // Description
       let organism: any = this.completeOrganismData.shift()
       this.organismData.push(organism)
+    },
+    saveSession() {
+      this.$router.go(0)
     }
   },
   beforeMount() {
