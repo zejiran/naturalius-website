@@ -1,51 +1,52 @@
 <template>
   <v-app>
     <v-card>
-        <v-toolbar
-            color="#1C769D"
-            height="100rem"
-            dark
-            flat
-        >
-          <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar
+          color="#1C769D"
+          dark
+          flat
+          height="100rem"
+      >
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-          <v-toolbar-title>Your Dashboard</v-toolbar-title>
+        <v-toolbar-title>Your Dashboard</v-toolbar-title>
 
-          <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
 
-          <template v-slot:extension>
-            <v-tabs
-                v-model="tab"
-                align-with-title
-            >
-              <v-tabs-slider color="yellow"></v-tabs-slider>
-
-              <v-tab
-                  v-for="item in topBarItems"
-                  :key="item"
-              >
-                {{ item.name }}
-              </v-tab>
-            </v-tabs>
-          </template>
-        </v-toolbar>
-
-        <v-tabs-items v-model="tab">
-          <v-tab-item
-              v-for="item in topBarItems"
-              :key="item"
+        <template v-slot:extension>
+          <v-tabs
+              v-model="tab"
+              align-with-title
           >
-            <v-card flat>
-              <v-card-text v-text="item.text"></v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs-items>
-      </v-card>
-    <v-container>
+            <v-tabs-slider color="yellow"></v-tabs-slider>
 
+            <v-tab
+                v-for="item in topBarItems"
+                :key="item"
+            >
+              {{ item.name }}
+            </v-tab>
+          </v-tabs>
+        </template>
+      </v-toolbar>
+
+      <v-tabs-items v-model="tab">
+        <v-tab-item
+            v-for="item in topBarItems"
+            :key="item"
+        >
+          <v-card flat>
+            <v-card-text v-text="item.text"></v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
+
+    <v-container>
       <v-navigation-drawer
           v-model="drawer"
           absolute
+          align="center"
           class="accent-4"
           dark
           style="background-color: #1C769D"
@@ -53,23 +54,23 @@
       >
         <v-list>
           <v-list-item
-              v-for="item in topBarItems"
+              v-for="item in sideBarItems"
               :key="item.title"
               link
           >
             <v-list-item-icon>
-              <v-icon>mdi-lock</v-icon>
+              <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-item-title>Configuration</v-list-item-title>
+              <v-list-item-title>{{ item.text }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
 
-        <template v-slot:append>
+        <template>
           <div class="pa-2">
-            <v-btn block>
+            <v-btn block color="white" href="https://naturalius.com.co" light>
               Logout
             </v-btn>
           </div>
@@ -177,15 +178,37 @@ export default Vue.extend({
     topBarItems: [
       {
         name: 'Home',
-        text: 'Your last activity reports at a glance',
+        text: 'Your last activity reports at a glance.',
       },
       {
         name: 'Single Search',
-        text: 'Search microorganisms using a 16S ribosomal RNA sequence',
+        text: 'Search microorganisms using a 16S ribosomal RNA sequence.',
       },
       {
         name: 'Search by group',
-        text: 'See your generated groups and clasifications, for manually searching a element',
+        text: 'See your generated groups and clasifications, for manually searching a element.',
+      },
+    ],
+    sideBarItems: [
+      {
+        text: 'Home',
+        icon: 'mdi-home',
+      },
+      {
+        text: 'Appointments',
+        icon: 'mdi-seat',
+      },
+      {
+        text: 'Configuration',
+        icon: 'mdi-tune',
+      },
+      {
+        text: 'Account Balance',
+        icon: 'mdi-account',
+      },
+      {
+        text: 'Support',
+        icon: 'mdi-help',
       },
     ],
   }),
