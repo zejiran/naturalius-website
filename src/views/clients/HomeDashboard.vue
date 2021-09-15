@@ -115,6 +115,7 @@
 <script lang="ts">
 import Vue from "vue";
 import VueApexCharts from 'vue-apexcharts'
+import kmersJson from '@/assets/mock/HeatMap1.json'
 
 Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
@@ -162,11 +163,19 @@ export default Vue.extend({
         icon: 'mdi-help',
       },
     ],
+    json: {},
 
     series: [{name: 's', data: [{x: '', y: 0}]}],
     chartOptions: {
+      legend: {
+        position: 'bottom',
+        horizontalAlign: 'right',
+        onItemHover: {
+          toggleDataSeries: true
+        },
+      },
       chart: {
-        height: 4000,
+        height: 1000,
         type: 'heatmap',
       },
       dataLabels: {
@@ -174,11 +183,68 @@ export default Vue.extend({
       },
       grid: {
         padding: {
-          right: 100,
-          left: 70
+          right: 50,
+          left: 30
+        },
+      },
+      xaxis: {
+        title: 's',
+        type: 'category',
+        categories: ['10', '20', '30', '40', '50', '60']
+      },
+      plotOptions: {
+        heatmap: {
+          colorScale: {
+            ranges: [
+              {
+                from: -100,
+                to: 9,
+                color: '#482979',
+                name: '10',
+              },
+              {
+                from: 10,
+                to: 19,
+                color: '#39558C',
+                name: '20',
+              },
+              {
+                from: 20,
+                to: 29,
+                color: '#297A8E',
+                name: '30',
+              },
+              {
+                from: 30,
+                to: 39,
+                color: '#1E9D89',
+                name: '40',
+              },
+              {
+                from: 40,
+                to: 49,
+                color: '#42BE70',
+                name: '50',
+              },
+              {
+                from: 50,
+                to: 59,
+                color: '#60CA60',
+                name: '60',
+              },
+              {
+                from: 60,
+                to: 100,
+                color: '#FBE524',
+                name: '70',
+              },
+            ]
+          },
+          distriduted: true,
+          radius: 0
         }
-      }
-    },
+      },
+    }
   }),
   methods: {
     onScroll(e: { target: { scrollTop: never; }; }) {
@@ -189,38 +255,37 @@ export default Vue.extend({
     toTop() {
       this.$vuetify.goTo(0)
     },
-    generateDataSeries(name: string) {
-      let kmers = []
-      for (let i = 1; i < 65; i++) {
-        let kmer = {
-          x: 'K' + i,
-          y: this.getRandomArbitrary(20, 101)
+    generateDataSeries() {
+      let json = kmersJson
+      for (let j = 0; j < json.length; j++) {
+        let obj = JSON.parse(JSON.stringify(json[j]))
+        let keys: string[] = Object.keys(obj)
+        console.log(keys)
+
+        let kmers = []
+        for (let k = 1; k < keys.length; k++) {
+          let label = keys[k]
+          let kmer = {
+            x: label,
+            y: obj[label]
+          }
+          kmers.push(kmer)
         }
-        kmers.push(kmer)
-      }
 
-      let row = {
-        name: name,
-        data: kmers
-      }
+        console.log({
+          name: obj.Organism,
+          data: kmers
+        })
 
-      this.series.push(row)
+        this.series.push({
+          name: obj.Organism,
+          data: kmers
+        })
+      }
     },
-    getRandomArbitrary(min: number, max: number) {
-      return Math.floor(Math.random() * (max - min) + min)
-    }
   },
-  mounted() {
-    this.generateDataSeries('Sphingobium sp. SYK-6')
-    this.generateDataSeries('Salmonella enterica')
-    this.generateDataSeries('Geobacillus stearothermophilus')
-    this.generateDataSeries('Corynebacterium glutamicum')
-    this.generateDataSeries('Cupriavidus pinatubonensis')
-    this.generateDataSeries('Lactococcus lactis')
-    this.generateDataSeries('Dickeya dadantii')
-    this.generateDataSeries('Teredinibacter turnerae')
-    this.generateDataSeries('Acinetobacter sp. YAA')
-    this.generateDataSeries('Desulfovibrio alaskensis')
+  beforeMount() {
+    this.generateDataSeries()
     this.series.shift()
   }
 })
