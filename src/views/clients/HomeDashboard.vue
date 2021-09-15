@@ -1,6 +1,48 @@
 <template>
   <v-app>
+    <v-card>
+        <v-toolbar
+            color="#1C769D"
+            height="100rem"
+            dark
+            flat
+        >
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+          <v-toolbar-title>Your Dashboard</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <template v-slot:extension>
+            <v-tabs
+                v-model="tab"
+                align-with-title
+            >
+              <v-tabs-slider color="yellow"></v-tabs-slider>
+
+              <v-tab
+                  v-for="item in topBarItems"
+                  :key="item"
+              >
+                {{ item.name }}
+              </v-tab>
+            </v-tabs>
+          </template>
+        </v-toolbar>
+
+        <v-tabs-items v-model="tab">
+          <v-tab-item
+              v-for="item in topBarItems"
+              :key="item"
+          >
+            <v-card flat>
+              <v-card-text v-text="item.text"></v-card-text>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-card>
     <v-container>
+
       <v-navigation-drawer
           v-model="drawer"
           absolute
@@ -11,7 +53,7 @@
       >
         <v-list>
           <v-list-item
-              v-for="item in items"
+              v-for="item in topBarItems"
               :key="item.title"
               link
           >
@@ -33,55 +75,6 @@
           </div>
         </template>
       </v-navigation-drawer>
-
-      <v-card>
-        <v-toolbar
-            color="#1C769D"
-            dark
-            flat
-        >
-          <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-          <v-toolbar-title>Your Dashboard</v-toolbar-title>
-
-          <v-spacer></v-spacer>
-
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-
-          <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-
-          <template v-slot:extension>
-            <v-tabs
-                v-model="tab"
-                align-with-title
-            >
-              <v-tabs-slider color="yellow"></v-tabs-slider>
-
-              <v-tab
-                  v-for="item in items"
-                  :key="item"
-              >
-                {{ item }}
-              </v-tab>
-            </v-tabs>
-          </template>
-        </v-toolbar>
-
-        <v-tabs-items v-model="tab">
-          <v-tab-item
-              v-for="item in items"
-              :key="item"
-          >
-            <v-card flat>
-              <v-card-text v-text="text"></v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs-items>
-      </v-card>
 
       <div class="mt-16 ml-16 mb-16">
         <h1 class="text-h3 font-weight-bold">
@@ -181,10 +174,20 @@ export default Vue.extend({
       '9pm',
     ],
     tab: null,
-    items: [
-      'web', 'shopping', 'videos', 'images', 'news',
+    topBarItems: [
+      {
+        name: 'Home',
+        text: 'Your last activity reports at a glance',
+      },
+      {
+        name: 'Single Search',
+        text: 'Search microorganisms using a 16S ribosomal RNA sequence',
+      },
+      {
+        name: 'Search by group',
+        text: 'See your generated groups and clasifications, for manually searching a element',
+      },
     ],
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   }),
 })
 </script>
