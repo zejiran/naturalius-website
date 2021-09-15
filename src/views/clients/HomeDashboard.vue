@@ -77,30 +77,37 @@
         </template>
       </v-navigation-drawer>
 
-      <div class="my-16 ml-16">
-        <h1 class="text-h3 font-weight-bold mb-16">
-          Welcome again Casa Luker!
-        </h1>
-      </div>
+      <div v-if="this.tab === 0">
+        <div class="my-16 ml-16">
+          <h1 class="text-h3 font-weight-bold mb-16">
+            Welcome again Casa Luker!
+          </h1>
+        </div>
 
-      <div class="ma-16">
-        <h1 class="text-h4 font-weight-bold">
-          Your last report results
-        </h1>
+        <div class="ma-16 mb-10">
+          <h1 class="text-h4 font-weight-bold">
+            Your last report results
+          </h1>
+        </div>
+        <apexchart :options="chartOptions" :series="series" height="450" type="heatmap"></apexchart>
       </div>
-      
     </v-container>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import VueApexCharts from 'vue-apexcharts'
+
+Vue.use(VueApexCharts)
+Vue.component('apexchart', VueApexCharts)
 
 export default Vue.extend({
   name: "HomeDashboard",
 
   data: () => ({
     tab: null,
+    drawer: null,
     topBarItems: [
       {
         name: 'Home',
@@ -138,8 +145,60 @@ export default Vue.extend({
       },
     ],
 
-
+    series: [{name: 's', data: [{x: '', y: 0}]}],
+    chartOptions: {
+      chart: {
+        height: 5000,
+        type: 'heatmap',
+      },
+      dataLabels: {
+        enabled: false
+      },
+      grid: {
+        padding: {
+          right: 100,
+          left: 100
+        }
+      }
+    },
   }),
+  methods: {
+    generateDataSeries(name: string) {
+      let kmers = []
+      for (let i = 1; i < 65; i++) {
+        let kmer = {
+          x: 'K' + i,
+          y: this.getRandomArbitrary(20, 101)
+        }
+        kmers.push(kmer)
+      }
+
+      let row = {
+        name: name,
+        data: kmers
+      }
+
+      this.series.push(row)
+    },
+    getRandomArbitrary(min: number, max: number) {
+      return Math.floor(Math.random() * (max - min) + min)
+    }
+  },
+  mounted() {
+    this.generateDataSeries('Canabbis')
+    this.generateDataSeries('Rugula')
+    this.generateDataSeries('Coliflor')
+    this.generateDataSeries('Avena')
+    this.generateDataSeries('Caccao')
+    this.generateDataSeries('Hierbabuena')
+    this.generateDataSeries('M_X')
+    this.generateDataSeries('M_X')
+    this.generateDataSeries('M_X')
+    this.generateDataSeries('M_X')
+    this.generateDataSeries('M_X')
+    this.generateDataSeries('M_X')
+    this.series.shift()
+  }
 })
 </script>
 
