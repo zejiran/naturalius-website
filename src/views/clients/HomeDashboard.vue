@@ -1,6 +1,19 @@
 <template>
   <v-app>
-    <v-card>
+    <v-btn
+        v-show="fab"
+        v-scroll="onScroll"
+        bottom
+        color="#1C769D"
+        dark
+        fab
+        fixed
+        right
+        @click="toTop"
+    >
+      <v-icon>mdi-arrow-up</v-icon>
+    </v-btn>
+    <v-card fixed>
       <v-toolbar
           color="#1C769D"
           dark
@@ -88,6 +101,10 @@
           <h1 class="text-h4 font-weight-bold">
             Your last report results
           </h1>
+          <p class="text--lighten-2 mt-3">This report identified with the RCL035 ID was obtained on 09/18/21</p>
+          <h1 class="text-h5 mt-16 font-weight-bold">
+            16S sequence representation
+          </h1>
         </div>
         <apexchart :options="chartOptions" :series="series" height="450" type="heatmap"></apexchart>
       </div>
@@ -107,7 +124,8 @@ export default Vue.extend({
 
   data: () => ({
     tab: null,
-    drawer: null,
+    fab: false,
+    drawer: false,
     topBarItems: [
       {
         name: 'Home',
@@ -148,7 +166,7 @@ export default Vue.extend({
     series: [{name: 's', data: [{x: '', y: 0}]}],
     chartOptions: {
       chart: {
-        height: 5000,
+        height: 4000,
         type: 'heatmap',
       },
       dataLabels: {
@@ -157,12 +175,20 @@ export default Vue.extend({
       grid: {
         padding: {
           right: 100,
-          left: 100
+          left: 70
         }
       }
     },
   }),
   methods: {
+    onScroll(e: { target: { scrollTop: never; }; }) {
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset || e.target.scrollTop || 0
+      this.fab = top > 20
+    },
+    toTop() {
+      this.$vuetify.goTo(0)
+    },
     generateDataSeries(name: string) {
       let kmers = []
       for (let i = 1; i < 65; i++) {
@@ -185,18 +211,16 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.generateDataSeries('Canabbis')
-    this.generateDataSeries('Rugula')
-    this.generateDataSeries('Coliflor')
-    this.generateDataSeries('Avena')
-    this.generateDataSeries('Caccao')
-    this.generateDataSeries('Hierbabuena')
-    this.generateDataSeries('M_X')
-    this.generateDataSeries('M_X')
-    this.generateDataSeries('M_X')
-    this.generateDataSeries('M_X')
-    this.generateDataSeries('M_X')
-    this.generateDataSeries('M_X')
+    this.generateDataSeries('Sphingobium sp. SYK-6')
+    this.generateDataSeries('Salmonella enterica')
+    this.generateDataSeries('Geobacillus stearothermophilus')
+    this.generateDataSeries('Corynebacterium glutamicum')
+    this.generateDataSeries('Cupriavidus pinatubonensis')
+    this.generateDataSeries('Lactococcus lactis')
+    this.generateDataSeries('Dickeya dadantii')
+    this.generateDataSeries('Teredinibacter turnerae')
+    this.generateDataSeries('Acinetobacter sp. YAA')
+    this.generateDataSeries('Desulfovibrio alaskensis')
     this.series.shift()
   }
 })
