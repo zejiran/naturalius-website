@@ -159,104 +159,40 @@
           <h1 class="text-h4 font-weight-bold">
             Past reports
           </h1>
-          <p class="text--lighten-2 mt-3"></p>
+          <v-card
+              v-for="i in [0,1,2,3,4,5,6].reverse()"
+              :key="i"
+              class="mx-auto mt-10 pa-3"
+              outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="text-overline mb-4">
+                  09/16/21
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  Report 00{{ i }}
+                </v-list-item-title>
+                <v-list-item-subtitle>No description provided.</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
 
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            Alcohols
-          </h1>
-          <p>
-            If an organic chemist were allowed to choose 10 aliphatic compounds to stay
-            left on a desert island he would almost certainly choose alcohols. With them I could
-            make practically all other types of aliphatic compounds: alkyl halides.
-            alkenes, ethers, aldehydes, ectones. acids, esters and many others. With halides of
-            alkyl would get Grignard reagents and. by reacting these with aldehydes and
-            celonas, would get more complex alcohols, and so on. On your desert island
-            I would use his alcohols not only as raw materials, but also as solvents for
-            to carry out reactions and to crystallize products. Finally tired after a
-            long day's work in the lab, he could rub himself off with an alcohol
-            (isopropyl) and relax with a refreshing alcoholic drink (ethanol).
-          </p>
-          <p>
-            Alcohols are compounds of the general formula ROH. where R is any alkyl group,
-            even replaced. The group can be primary, secondary or tertiary; can be chain
-            open or cyclical; may contain a double bond, a halogen atom, an aromatic ring
-            or additional hydroxyl groups.
-            All alcohols contain the hydrophilic group (—OH), which being its group
-            Functional determines the characteristic properties of this family. Variations in
-            structure of the R group can affect the rate of certain reactions of alcohol and
-            even affect, in some cases, the type of reaction.
-          </p>
-
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            Phenols
-          </h1>
-          <p>
-            Compounds with a hydroxyl group directly attached to an aromatic ring and not
-            they are alcohols, but rather phenols, which differ so markedly from the former. Phenols are compounds of
-            the general formula ArOH, where Ar is phenyl, substituted phenyl, or one of the other aryl groups. Phenols
-            are generally named as derivatives of the simplest member of the
-            family, phenol. Methylphenols are given the special name of cresols. Phenols are quite acidic compounds, and
-            aqueous hydroxides make phenols in their salts. Coal tar produces a certain amount of phenol and also
-            cresols. The most important amount, however, is synthetic. Phenol ranks high on the list of synthetic
-            aromatic compounds; It is mainly used in the manufacture of phenol-formaldehyde polymers
-          </p>
-
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            Aldehydes and Ketones
-          </h1>
-          <p>
-            Aldehydes are substances of the general formula RC'HO: ketones are compounds of
-            general formula RR'CO. The R and R 'groups can be aliphatic or aromatic. (At
-            aldehyde. DONE. R is H.
-            Aldehydes and ketones contain the carbonite group. C = 0. and I often
-            collectively called carbonyl compounds. The carbomyl group is the one that determines in
-            measure the chemistry of aldehydes and ketones
-            Not surprisingly, aldehydes and ketones are similar in most of their
-            properties. However, the carbonyl group of aldehydes also contains a
-            hydrogen, while ketones have two organic groups. This structural difference
-            affects their properties in two ways: (a) aldehydes are easily oxidized: ketones
-            they only do it with difficulty (b) aldehydes tend to be more reactive than ketones in adi
-            neleophilic tions. reactions these last characteristics of carbonyl compounds.
-          </p>
-
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            Esters
-          </h1>
-          <p>
-            They are derived from carboxylic acids and their structure is RCOOR 'with a carbonyl group (C = O). The
-            limit solubility in water is three to five carbons. The more volatile esters have pleasant and very
-            characteristic odors, which is why they are often used in the preparation of perfumes and artificial
-            condiments.
-          </p>
-
-          <h1 class="text-h5 mt-16 font-weight-bold">
-            Amines, Purines and Nitriles
-          </h1>
-          <p>
-            Amines are organic substances that show appreciable basicity as they can cause litmus paper to turn. Amines
-            have the general formula RNH2. R2NH or RjN, where R is an alkyl or aryl group. Simply put Amines are simply
-            ammonia with one or more hydrogens replaced by organic groups.
-            Some of the simplest and most important amines are prepared on an industrial scale by
-            processes that have no application as laboratory methods.
-            The most important amine of all, aniline, is prepared in several ways one of them is by
-            reduction of nitrobenzene with iron and hydrochloric acid, which are cheap reagents.
-            A very important type of compound spirit is one where nitrogen is part of a
-            ring. Since a ring of these characteristics contains more than one type of atom
-            (nitrogen plus the usual carbon). the compound of which it forms part is said to be
-            heterocycle. These heterocyclic amines can be saturated or not. aliphatic or aromatic; a
-            Nitrogen shares the ring with another or with a heteroatom such as oxygen or sulfur. Some examples of these
-            compounds are: pyrrole, pyridine, purine among many more.
-            Something to keep in mind as an important aspect is that, whether it is part of a ring or not, the
-            nitrogen is still nitrogen. It retains its most important property, its basicity. This property that
-            determines the chemical behavior of amines.
-            We have all heard of bases, the sequence of which throughout the DNA molecule constitutes the
-            genetic code. These are heterocyclic bases and their basicity is due to nitrogen.
-            Nitriles are compounds that have the structure RC = N and are referred to as cyano-compound cyanides,
-            generally they receive the name of the acids that they generate by hydrolysis. They are named by removing
-            the word acid and changing the ico ending from the acid's common name to nitrile; for euphony, an "o" would
-            normally be inserted between the stem and the ending, for example, acetonitrile.
-          </p>
-
+            <v-card-actions>
+              <v-btn
+                  color="#1C769D"
+                  elevation="1"
+                  outlined
+              >
+                See online results
+              </v-btn>
+              <v-btn
+                  elevation="1"
+                  outlined
+              >
+                Download PDF report
+              </v-btn>
+            </v-card-actions>
+          </v-card>
         </div>
       </div>
     </v-container>
