@@ -1,0 +1,24 @@
+organismName,organismImage,compoundGroup,compoundName,compoundImage,characteristic,compoundType
+,,,,,,
+Sphingobium sp. SYK-6,,Aldehydes and ketones,(-)-dehydrodiconiferyl+acid+aldehyde,,Chocolate,Desired
+Salmonella enterica,,Alcohols and phenols,"(S)-propane-1,2-diol",,Soft chocolate,Desired
+Geobacillus stearothermophilus,,Esters,isopentenyl+diphosphate,,Fruit,Desired
+Corynebacterium glutamicum,,Esters,benzoate,,Floral,Desired
+Cupriavidus pinatubonensis,,Aldehydes and ketones,"2,6-dichlorohydroquinone",,Smoked,Unwanted
+Lactococcus lactis,,Alcohols and phenols,3-methylbutanol,,Malta,Unwanted
+Dickeya dadantii,,Amines_amides_nitriles_purines,Achromobactin,,Roast,Unwanted
+Teredinibacter turnerae,,Esters,decanoate,,Grape,Desired
+Acinetobacter sp. YAA,,Alcohols and phenols,"1-aminocyclohexa-3,5-diene-1,2-diol",,Fatty,Unwanted
+Desulfovibrio alaskensis,,Aldehydes and ketones,acetaldehyde,,Spicy bitterness,Unwanted
+,,,,,,
+,,,,,,
+Hyphomicrobium sulfonivorans,,Alcohols and phenols,methanethiol,,,
+Desulfovibrio sulfodismutans,,Esters,thiosulfate,,,
+Parabacteroides goldsteinii,,Furans_furanones_pyrans_pyrones,L-galactopyranose,,,
+Sporolactobacillus inulinus,,Esters,isopentenyl+diphosphate,,,
+Pseudomonas sp. CF600,,Alcohols and phenols,phenol,,,
+Methyloversatilis universalis,,Amines_amides_nitriles_purines,N5-methyl-L-glutamine,,,
+Ochrobactrum rhizosphaerae,,Esters,maleate,,,
+Yersinia pestis,,Esters,salicylate,,,
+Rhodococcus sp. TMP1,,Alcohols and phenols,3-amino-2-butanol,,,
+Pseudomonas sp. YL,,Esters,2-chloro-2-hydroxypropanoate,,,

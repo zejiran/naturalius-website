@@ -1,11 +1,102 @@
 [
   {
-    "organismName": "MO_NAME",
-    "organismImage": "cocoa.jpeg",
-    "compoundGroup": "CMP_GROUP",
-    "compoundName": "CMP_NAME",
-    "compoundImage": "cocoa.jpeg",
-    "characteristic": "REPLACE",
-    "compoundType": "GOOD"
+    "organismName": "Sphingobium sp. SYK-6",
+    "organismImage": "1.png",
+    "compoundGroup": "Aldehydes and ketones",
+    "compoundName": "(-)-dehydrodiconiferyl+acid+aldehyde",
+    "compoundImage": "1.png",
+    "characteristic": "Chocolate",
+    "characteristicImage": "1.png",
+    "compoundType": "Desired"
+  },
+  {
+    "organismName": "Salmonella enterica",
+    "organismImage": "2.png",
+    "compoundGroup": "Alcohols and phenols",
+    "compoundName": "(S)-propane-1,2-diol",
+    "compoundImage": "2.png",
+    "characteristic": "Soft chocolate",
+    "characteristicImage": "2.png",
+    "compoundType": "Desired"
+  },
+  {
+    "organismName": "Geobacillus stearothermophilus",
+    "organismImage": "3.png",
+    "compoundGroup": "Esters",
+    "compoundName": "isopentenyl+diphosphate",
+    "compoundImage": "3.png",
+    "characteristic": "Fruit",
+    "characteristicImage": "3.png",
+    "compoundType": "Desired"
+  },
+  {
+    "organismName": "Corynebacterium glutamicum",
+    "organismImage": "4.png",
+    "compoundGroup": "Esters",
+    "compoundName": "benzoate",
+    "compoundImage": "4.png",
+    "characteristic": "Floral",
+    "characteristicImage": "4.png",
+    "compoundType": "Desired"
+  },
+  {
+    "organismName": "Cupriavidus pinatubonensis",
+    "organismImage": "5.png",
+    "compoundGroup": "Aldehydes and ketones",
+    "compoundName": "2,6-dichlorohydroquinone",
+    "compoundImage": "5.png",
+    "characteristic": "Smoked",
+    "characteristicImage": "5.png",
+    "compoundType": "Unwanted"
+  },
+  {
+    "organismName": "Lactococcus lactis",
+    "organismImage": "6.png",
+    "compoundGroup": "Alcohols and phenols",
+    "compoundName": "3-methylbutanol",
+    "compoundImage": "6.png",
+    "characteristic": "Malta",
+    "characteristicImage": "6.png",
+    "compoundType": "Unwanted"
+  },
+  {
+    "organismName": "Dickeya dadantii",
+    "organismImage": "7.png",
+    "compoundGroup": "Amines_amides_nitriles_purines",
+    "compoundName": "Achromobactin",
+    "compoundImage": "7.png",
+    "characteristic": "Roast",
+    "characteristicImage": "7.png",
+    "compoundType": "Unwanted"
+  },
+  {
+    "organismName": "Teredinibacter turnerae",
+    "organismImage": "8.png",
+    "compoundGroup": "Esters",
+    "compoundName": "decanoate",
+    "compoundImage": "8.png",
+    "characteristic": "Grape",
+    "characteristicImage": "8.png",
+    "compoundType": "Desired"
+  },
+  {
+    "organismName": "Acinetobacter sp. YAA",
+    "organismImage": "9.png",
+    "compoundGroup": "Alcohols and phenols",
+    "compoundName": "1-aminocyclohexa-3,5-diene-1,2-diol",
+    "compoundImage": "9.png",
+    "characteristic": "Fatty",
+    "characteristicImage": "9.png",
+    "compoundType": "Unwanted"
+  },
+  {
+    "organismName": "Desulfovibrio alaskensis",
+    "organismImage": "10.png",
+    "compoundGroup": "Aldehydes and ketones",
+    "compoundName": "acetaldehyde",
+    "compoundImage": "10.png",
+    "characteristic": "Spicy bitterness",
+    "characteristicImage": "10.png",
+    "compoundType": "Unwanted"
   }
 ]
