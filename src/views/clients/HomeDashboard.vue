@@ -119,8 +119,17 @@
                   <h1 class="text-h4 pb-6">
                     {{ organism.organismName }}
                   </h1>
-                  <v-img :src="require(`@/assets/mock/images/organism/${organism.organismImage}`)"
-                         aspect-ratio="1" max-height="300" max-width="300"></v-img>
+                  <v-tooltip max-width="350px" right>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-img v-bind="attrs"
+                             v-on="on" :src="require(`@/assets/mock/images/organism/${organism.organismImage}`)"
+                             aspect-ratio="1"
+                             max-height="300"
+                             max-width="300"></v-img>
+                    </template>
+                    <span>Sphingobium species differ from other sphingomonas in that they are usually isolated from the soil; however, Sphingobium yanoikuyae was isolated from a clinical sample. They can degrade a variety of chemicals in the environment, such as aromatic and chloroaromatic compounds, phenols such as nonylphenol and pentachlorophenol, herbicides such as (RS) -2- (4-chloro-2-methylphenoxy) propionic acid and hexachlorocyclohexane, and polycyclic aromatic hydrocarbons.
+The SYK-6 strain of Sphingobium sp. It is capable of growing on a wide variety of lignin-derived biaryls and monoaryls, and the catabolic genes for these compounds are useful for the production of industrially valuable metabolites from lignin. (https://www.nite.go.jp/en/nbrc/genome/project/annotation/ss1.html)</span>
+                  </v-tooltip>
                 </v-col>
                 <v-col cols="4">
                   <h1 class="text-h6 pb-6">
@@ -129,8 +138,15 @@
                   <p class="">
                     <span class="font-weight-bold">Compound type:</span> {{ organism.compoundType }}
                   </p>
-                  <v-img :src="require(`@/assets/mock/images/compound/${organism.compoundImage}`)"
-                         max-height="300" max-width="300"></v-img>
+                  <v-tooltip max-width="350px" right>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-img v-bind="attrs"
+                             v-on="on" :src="require(`@/assets/mock/images/compound/${organism.compoundImage}`)"
+                             max-height="300"
+                             max-width="300"></v-img>
+                    </template>
+                    <span>Aldehydes are substances of the general formula RC'HO: ketones are compounds of general formula RR'CO. The R and R 'groups can be aliphatic or aromatic. (At aldehyde. DONE. R is H. Aldehydes and ketones contain the carbonite group. C = 0. and I often collectively called carbonyl compounds. The carbomyl group is the one that determines in measure the chemistry of aldehydes and ketones Not surprisingly, aldehydes and ketones are similar in most of their properties. However, the carbonyl group of aldehydes also contains a hydrogen, while ketones have two organic groups. This structural difference affects their properties in two ways: (a) aldehydes are easily oxidized: ketones they only do it with difficulty (b) aldehydes tend to be more reactive than ketones in adi neleophilic tions. reactions these last characteristics of carbonyl compounds.</span>
+                  </v-tooltip>
                 </v-col>
                 <v-col class="mt-16" cols="4">
                   <p class="">
