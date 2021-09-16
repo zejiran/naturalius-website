@@ -119,26 +119,28 @@
                   <h1 class="text-h4 pb-6">
                     {{ organism.organismName }}
                   </h1>
-                  <v-img :src="require(`@/assets/images/${organism.organismImage}`)"
+                  <v-img :src="require(`@/assets/mock/images/organism/${organism.organismImage}`)"
+                         aspect-ratio="1" max-height="300" max-width="300"></v-img>
+                </v-col>
+                <v-col cols="4">
+                  <h1 class="text-h6 pb-6">
+                    {{ organism.compoundName }}
+                  </h1>
+                  <p class="">
+                    <span class="font-weight-bold">Compound type:</span> {{ organism.compoundType }}
+                  </p>
+                  <v-img :src="require(`@/assets/mock/images/compound/${organism.compoundImage}`)"
                          max-height="300" max-width="300"></v-img>
                 </v-col>
                 <v-col class="mt-16" cols="4">
                   <p class="">
-                    Compound group: {{ organism.compoundGroup }}
+                    <span class="font-weight-bold">Compound group:</span> {{ organism.compoundGroup }}
                   </p>
                   <p class="">
-                    Characteristic: {{ organism.characteristic }}
+                    <span class="font-weight-bold">Characteristic:</span> {{ organism.characteristic }}
                   </p>
-                  <p class="">
-                    Compound type: {{ organism.compoundType }}
-                  </p>
-                </v-col>
-                <v-col cols="4">
-                  <h1 class="text-h4 pb-6">
-                    {{ organism.compoundName }}
-                  </h1>
-                  <v-img :src="require(`@/assets/images/${organism.compoundImage}`)"
-                         max-height="300" max-width="300"></v-img>
+                  <v-img :src="require(`@/assets/mock/images/characteristic/${organism.characteristicImage}`)"
+                         max-height="400" max-width="300"></v-img>
                 </v-col>
               </v-row>
             </v-card>
@@ -258,8 +260,6 @@
         </div>
       </div>
     </v-container>
-
-    <div style="height: 200px"></div>
   </v-app>
 </template>
 
@@ -320,6 +320,7 @@ export default Vue.extend({
       "compoundName": "CMP_NAME",
       "compoundImage": "@/assets/mock/images/compound/",
       "characteristic": "REPLACE",
+      "characteristicImage": "",
       "compoundType": "GOOD"
     }],
     organismData: [{
@@ -329,6 +330,7 @@ export default Vue.extend({
       "compoundName": "CMP_NAME",
       "compoundImage": "@/assets/mock/images/compound/",
       "characteristic": "REPLACE",
+      "characteristicImage": "",
       "compoundType": "GOOD"
     }],
     completeDataSeries: [{name: 'n', data: [{x: '', y: 0}]}],
