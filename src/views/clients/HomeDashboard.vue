@@ -34,8 +34,8 @@
             <v-tabs-slider color="yellow"></v-tabs-slider>
 
             <v-tab
-                v-for="item in topBarItems"
-                :key="item"
+                v-for="(item, i) in topBarItems"
+                :key="i"
             >
               {{ item.name }}
             </v-tab>
@@ -45,8 +45,8 @@
 
       <v-tabs-items v-model="tab">
         <v-tab-item
-            v-for="item in topBarItems"
-            :key="item"
+            v-for="(item, i) in topBarItems"
+            :key="i"
         >
           <v-card flat>
             <v-card-text v-text="item.text"></v-card-text>
@@ -67,8 +67,8 @@
       >
         <v-list>
           <v-list-item
-              v-for="item in sideBarItems"
-              :key="item.title"
+              v-for="(item, i) in sideBarItems"
+              :key="i"
               link
           >
             <v-list-item-icon>
@@ -105,6 +105,15 @@
             <v-btn @click="showSingleSearch">Search</v-btn>
           </div>
 
+          <div v-if="sequenceNotFound" class="ma-16 mb-10">
+            <v-alert
+                dense
+                type="error"
+            >
+              Incorrect, repeated or not found sequence
+            </v-alert>
+          </div>
+
           <v-container v-if="this.searched">
             <h1 class="text-h5 mt-16 font-weight-bold">
               16S sequence representation
@@ -114,7 +123,7 @@
             <h1 class="text-h5 mt-16 font-weight-bold">
               Result details
             </h1>
-            <v-card v-for="organism in this.organismData" :key="organism" class="pa-16 ma-16">
+            <v-card v-for="(organism, i) in this.organismData" :key="i" class="pa-16 ma-16">
               <v-row>
                 <v-col cols="4">
                   <h1 class="text-h4 pb-6">
@@ -234,6 +243,7 @@ export default Vue.extend({
     drawer: false,
     searched: false,
     searchedSequence: '',
+    sequenceNotFound: false,
     topBarItems: [
       {
         name: 'Search',
@@ -410,10 +420,12 @@ export default Vue.extend({
       }
     },
     showSingleSearch() {
-      this.searched = true
-
       // Description
       let organismDescription = this.completeOrganismData.filter(e => e.sequence == this.searchedSequence)[0]
+      if (organismDescription == undefined) {
+        this.sequenceNotFound = true
+        return
+      }
       this.completeOrganismData = this.completeOrganismData.filter(item => item !== organismDescription)
       this.organismData.push(organismDescription)
 
@@ -421,6 +433,9 @@ export default Vue.extend({
       let heatmap: any = this.completeDataSeries.filter(e => e.name == organismDescription.organismName)[0]
       this.completeDataSeries = this.completeDataSeries.filter(item => item !== heatmap)
       this.series.push(heatmap)
+
+      this.searched = true
+      this.sequenceNotFound = false
     },
     saveSession() {
       this.$router.go(0)
