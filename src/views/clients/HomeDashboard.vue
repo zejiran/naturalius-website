@@ -114,6 +114,16 @@
             </v-alert>
           </div>
 
+          <div v-if="loading" class="ma-16 mb-10 pa-auto" style="height: 150px; width: 150px">
+            <lottie-animation
+                ref="animation"
+                :animationData="require(`@/assets/lottie/searchSequence.json`)"
+                :autoPlay="true"
+                :loop="true"
+                :speed="0.1"
+            />
+          </div>
+
           <v-container v-if="this.searched">
             <h1 class="text-h5 mt-16 font-weight-bold">
               16S sequence representation
@@ -230,19 +240,25 @@ import Vue from "vue";
 import VueApexCharts from 'vue-apexcharts'
 import kmersJson from '@/assets/mock/data/HeatMap1.json'
 import organismJson from '@/assets/mock/data/organismResults.json'
+import LottieAnimation from 'lottie-web-vue';
 
+Vue.use(LottieAnimation)
 Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 
 export default Vue.extend({
   name: "HomeDashboard",
 
+  components: {
+    LottieAnimation
+  },
   data: () => ({
     tab: null,
     fab: false,
     drawer: false,
     searched: false,
     searchedSequence: '',
+    loading: false,
     sequenceNotFound: false,
     topBarItems: [
       {
@@ -419,11 +435,18 @@ export default Vue.extend({
         this.completeOrganismData.push(obj)
       }
     },
-    showSingleSearch() {
+    async showSingleSearch() {
+      this.loading = true
+      let sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms))
+      await sleep(Math.floor(Math.random() * (3000 - 1000 + 1) + 1000))
+      this.loading = false
+
       // Description
       let organismDescription = this.completeOrganismData.filter(e => e.sequence == this.searchedSequence)[0]
       if (organismDescription == undefined) {
         this.sequenceNotFound = true
+        await sleep(4000)
+        this.sequenceNotFound = false
         return
       }
       this.completeOrganismData = this.completeOrganismData.filter(item => item !== organismDescription)
