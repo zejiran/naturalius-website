@@ -97,6 +97,7 @@
               Start searching relations by 16S
             </h1>
             <v-text-field
+                v-model="searchedSequence"
                 class="mt-10 mb-5"
                 filled
                 label="Paste a 16S sequence">
@@ -232,6 +233,7 @@ export default Vue.extend({
     fab: false,
     drawer: false,
     searched: false,
+    searchedSequence: '',
     topBarItems: [
       {
         name: 'Search',
@@ -267,23 +269,25 @@ export default Vue.extend({
     json: {},
     completeOrganismData: [{
       "organismName": "MO_NAME",
-      "organismImage": "./../../assets/images/cocoa.jpeg",
+      "organismImage": "cocoa.jpeg",
       "compoundGroup": "CMP_GROUP",
       "compoundName": "CMP_NAME",
-      "compoundImage": "@/assets/mock/images/compound/",
+      "compoundImage": "cocoa.jpeg",
       "characteristic": "REPLACE",
       "characteristicImage": "",
-      "compoundType": "GOOD"
+      "compoundType": "GOOD",
+      "sequence": ""
     }],
     organismData: [{
       "organismName": "MO_NAME",
-      "organismImage": "./../../assets/images/cocoa.jpeg",
+      "organismImage": "cocoa.jpeg",
       "compoundGroup": "CMP_GROUP",
       "compoundName": "CMP_NAME",
-      "compoundImage": "@/assets/mock/images/compound/",
+      "compoundImage": "cocoa.jpeg",
       "characteristic": "REPLACE",
       "characteristicImage": "",
-      "compoundType": "GOOD"
+      "compoundType": "GOOD",
+      "sequence": ""
     }],
     completeDataSeries: [{name: 'n', data: [{x: '', y: 0}]}],
     series: [{name: 'n', data: [{x: '', y: 0}]}],
@@ -408,13 +412,15 @@ export default Vue.extend({
     showSingleSearch() {
       this.searched = true
 
-      // Heatmap
-      let element: any = this.completeDataSeries.shift()
-      this.series.push(element)
-
       // Description
-      let organism: any = this.completeOrganismData.shift()
-      this.organismData.push(organism)
+      let organismDescription = this.completeOrganismData.filter(e => e.sequence == this.searchedSequence)[0]
+      this.completeOrganismData = this.completeOrganismData.filter(item => item !== organismDescription)
+      this.organismData.push(organismDescription)
+
+      // Heatmap
+      let heatmap: any = this.completeDataSeries.filter(e => e.name == organismDescription.organismName)[0]
+      this.completeDataSeries = this.completeDataSeries.filter(item => item !== heatmap)
+      this.series.push(heatmap)
     },
     saveSession() {
       this.$router.go(0)
