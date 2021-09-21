@@ -11,27 +11,29 @@
             class="mx-md-auto mr-2 pa-md-9 pr-6 my-5"
         >
           <div class="d-md-flex flex-no-wrap justify-space-between">
-            <v-avatar rounded class="ma-3" id="profile" style="width: 100%; height: auto">
+            <v-avatar id="profile" class="ma-3" rounded style="width: 100%; height: auto">
               <v-img :src="member.image"></v-img>
             </v-avatar>
 
             <div id="information">
               <v-card-title
-                  style="word-break: break-word;"
                   class="text-h6 text-md-h5"
+                  style="word-break: break-word;"
                   v-text="member.name"
               ></v-card-title>
 
-              <a style="text-decoration: none" :href="'mailto:' + member.email"><v-card-subtitle class="pt-0">E-mail: {{ member.email }}</v-card-subtitle></a>
+              <a :href="'mailto:' + member.email" style="text-decoration: none">
+                <v-card-subtitle class="pt-0">E-mail: {{ member.email }}</v-card-subtitle>
+              </a>
               <v-card-subtitle class="text-justify" v-text="member.background"></v-card-subtitle>
 
               <v-card-actions>
                 <v-btn
+                    :href="member.linkedin"
                     class="mt-2"
+                    height="40px"
                     icon
                     target="_blank"
-                    :href="member.linkedin"
-                    height="40px"
                     width="40px"
                 >
                   <v-icon>mdi-linkedin</v-icon>
@@ -53,6 +55,7 @@ import p3 from '@/assets/images/team/3.png';
 import p4 from '@/assets/images/team/4.jpeg';
 import p5 from '@/assets/images/team/5.jpeg';
 import p6 from '@/assets/images/team/6.jpg';
+import p7 from '@/assets/images/team/7.jpg';
 
 export default Vue.extend({
   name: 'People',
@@ -102,6 +105,13 @@ export default Vue.extend({
         email: 'j.alegria@uniandes.edu.co',
         background: 'Desarrollador de software, actualmente estudiante en Ingeniería de Sistemas de la Universidad de los Andes. Juan tiene importantes habilidades en desarrollo Fullstack, construcción de aplicaciones móviles, diseño de arquitecturas y soluciones con software, y en tecnologías como HTML, CSS, Javascript, Python, React, Django, Flutter, Go, Vue.js, Java, SQL, C/C++, Firebase, Git y AWS. Ha trabajado en startups de YCombinator y en varios proyectos freelance. Juan está actualmente contribuyendo de forma continua con Naturalius en la generación de plataformas y servicios web, así como apoyando diversas actividades relacionadas al diseño e implementación de modelos basados en inteligencia artificial (AI).',
         linkedin: 'https://www.linkedin.com/in/juanszalegria/'
+      },
+      {
+        image: p7,
+        name: 'Fabio Esteban Herrera Rocha',
+        email: 'f.herrera@uniandes.edu.co',
+        background: 'Ingeniero Agroindustrial y Estudiante de Doctorado en Ingeniería en la Universidad de los Andes. Fabio tiene experiencia en el uso de tecnologías ómicas (metagenómica, metabolómica y lipidómica) en diversas aplicaciones en las industrias alimentaria y farmacéutica.  También es parte del Grupo de Diseño de Productos y Procesos (GDPP) del departamento de Ingeniería Química y Alimentos, donde ha trabajado en bioinformática y aplicaciones de técnicas de Machine Learning con datos ómicos para el descubrimiento de nuevos microorganismos y moléculas con propiedades bioactivas o de interés industrial.',
+        linkedin: 'https://www.linkedin.com/in/fabio-esteban-herrera-rocha-66523a171/'
       }
     ],
   }),
@@ -114,7 +124,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #information {
   width: 100%;
 }
@@ -124,9 +134,9 @@ export default Vue.extend({
 }
 
 @media only screen and (min-width: 960px) and (min-device-width: 960px) {
-#people-card {
-  width: 75%;
-}
+  #people-card {
+    width: 75%;
+  }
 
   #information {
     width: 65% !important;
