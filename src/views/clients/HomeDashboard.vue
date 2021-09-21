@@ -142,7 +142,8 @@
                   <v-tooltip max-width="350px" right>
                     <template v-slot:activator="{ on, attrs }">
                       <v-img v-bind="attrs"
-                             v-on="on" :src="require(`@/assets/mock/images/organism/${organism.organismImage}`)"
+                             v-on="on"
+                             :eager="true" :src="require(`@/assets/mock/images/organism/${organism.organismImage}`)"
                              aspect-ratio="1"
                              max-height="300"
                              max-width="300"></v-img>
@@ -161,7 +162,8 @@ The SYK-6 strain of Sphingobium sp. It is capable of growing on a wide variety o
                   <v-tooltip max-width="350px" right>
                     <template v-slot:activator="{ on, attrs }">
                       <v-img v-bind="attrs"
-                             v-on="on" :src="require(`@/assets/mock/images/compound/${organism.compoundImage}`)"
+                             v-on="on"
+                             :eager="true" :src="require(`@/assets/mock/images/compound/${organism.compoundImage}`)"
                              max-height="300"
                              max-width="300"></v-img>
                     </template>
@@ -175,7 +177,8 @@ The SYK-6 strain of Sphingobium sp. It is capable of growing on a wide variety o
                   <p class="">
                     <span class="font-weight-bold">Characteristic:</span> {{ organism.characteristic }}
                   </p>
-                  <v-img :src="require(`@/assets/mock/images/characteristic/${organism.characteristicImage}`)"
+                  <v-img :eager="true"
+                         :src="require(`@/assets/mock/images/characteristic/${organism.characteristicImage}`)"
                          max-height="400" max-width="300"></v-img>
                 </v-col>
               </v-row>
